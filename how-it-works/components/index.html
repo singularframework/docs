@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" type="image/svg+xml" href="./../../assets/theme/images/favicon.svg">
+    <link rel="mask-icon" color="white" href="./../../assets/theme/images/favicon.svg">
+    <title>Singular: Create smarter servers with Node.js - Components</title>
+    <link rel="stylesheet" href="./../../assets/theme/styles.css">
+    <style>
+      blockquote:before {
+        background-image: url('./../../assets/theme/images/icon-note.svg');
+      }
+    </style>
+    <script src="./../../assets/theme/scripts/steroids.js"></script>
+  </head>
+  <body>
+    <template id="button_link">
+      <a href="#">
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+        	 viewBox="0 0 512.092 512.092" style="enable-background:new 0 0 512.092 512.092;" xml:space="preserve">
+        	<path d="M312.453,199.601c-6.066-6.102-12.792-11.511-20.053-16.128c-19.232-12.315-41.59-18.859-64.427-18.859
+        	 	c-31.697-0.059-62.106,12.535-84.48,34.987L34.949,308.23c-22.336,22.379-34.89,52.7-34.91,84.318
+        	 	c-0.042,65.98,53.41,119.501,119.39,119.543c31.648,0.11,62.029-12.424,84.395-34.816l89.6-89.6
+        	 	c1.628-1.614,2.537-3.816,2.524-6.108c-0.027-4.713-3.87-8.511-8.583-8.484h-3.413c-18.72,0.066-37.273-3.529-54.613-10.581
+        	 	c-3.195-1.315-6.867-0.573-9.301,1.877l-64.427,64.512c-20.006,20.006-52.442,20.006-72.448,0
+        	 	c-20.006-20.006-20.006-52.442,0-72.448l108.971-108.885c19.99-19.965,52.373-19.965,72.363,0
+        	 	c13.472,12.679,34.486,12.679,47.957,0c5.796-5.801,9.31-13.495,9.899-21.675C322.976,216.108,319.371,206.535,312.453,199.601z"
+        	 	/>
+        	<path d="M477.061,34.993c-46.657-46.657-122.303-46.657-168.96,0l-89.515,89.429c-2.458,2.47-3.167,6.185-1.792,9.387
+        			c1.359,3.211,4.535,5.272,8.021,5.205h3.157c18.698-0.034,37.221,3.589,54.528,10.667c3.195,1.315,6.867,0.573,9.301-1.877
+        			l64.256-64.171c20.006-20.006,52.442-20.006,72.448,0c20.006,20.006,20.006,52.442,0,72.448l-80.043,79.957l-0.683,0.768
+        			l-27.989,27.819c-19.99,19.965-52.373,19.965-72.363,0c-13.472-12.679-34.486-12.679-47.957,0
+        			c-5.833,5.845-9.35,13.606-9.899,21.845c-0.624,9.775,2.981,19.348,9.899,26.283c9.877,9.919,21.433,18.008,34.133,23.893
+        			c1.792,0.853,3.584,1.536,5.376,2.304c1.792,0.768,3.669,1.365,5.461,2.048c1.792,0.683,3.669,1.28,5.461,1.792l5.035,1.365
+        			c3.413,0.853,6.827,1.536,10.325,2.133c4.214,0.626,8.458,1.025,12.715,1.195h5.973h0.512l5.12-0.597
+        			c1.877-0.085,3.84-0.512,6.059-0.512h2.901l5.888-0.853l2.731-0.512l4.949-1.024h0.939c20.961-5.265,40.101-16.118,55.381-31.403
+        			l108.629-108.629C523.718,157.296,523.718,81.65,477.061,34.993z"/>
+        </svg>
+      </a>
+    </template>
+    <header>
+      <svg class="button-menu" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" onclick="toggleLeftPane()">
+        <g transform="translate(-75 -25)">
+          <rect width="50" height="50" transform="translate(75 25)" fill="none"/>
+          <line x2="35" transform="translate(82.5 40)" fill="none" stroke-linecap="round" stroke-width="3"/>
+          <line x2="35" transform="translate(82.5 50)" fill="none" stroke-linecap="round" stroke-width="3"/>
+          <line x2="35" transform="translate(82.5 60)" fill="none" stroke-linecap="round" stroke-width="3"/>
+        </g>
+      </svg>
+      <a href="./../..">
+        <img src="./../../assets/theme/images/logo-header.svg" alt="Steroids">
+      </a>
+    </header>
+    <div class="main">
+      <div class="left-pane">
+        <nav>
+            
+            <a class="nav-level-0" href="../../installation/">
+              Installation
+            </a>
+            
+            <a class="nav-level-0 nav-with-arrow" href="../">
+              How It Works
+                <svg onclick="toggleMenuContainer(this, event)" class="nav-arrow collapse" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
+                  <g transform="translate(-230 -276)">
+                    <line x2="5" y2="5" transform="translate(239 288)" fill="none" stroke-linecap="round" stroke-width="3"/>
+                    <line x1="5" y2="5" transform="translate(244 288)" fill="none" stroke-linecap="round" stroke-width="3"/>
+                  </g>
+                </svg>
+            </a>
+              <div class="nav-container visible">
+                <hr class="nav-separator nav-level-0">
+            
+            <a class="nav-level-1 nav-selected" href="./">
+              Components
+            </a>
+            
+            <a class="nav-level-1" href="../../how-it-works/services/">
+              Services
+            </a>
+            
+            <a class="nav-level-1" href="../../how-it-works/routers/">
+              Routers
+            </a>
+            
+            <a class="nav-level-1" href="../../how-it-works/cors/">
+              CORS
+            </a>
+            
+            <a class="nav-level-1 nav-with-arrow" href="../../how-it-works/validation/">
+              Validation
+                <svg onclick="toggleMenuContainer(this, event)" class="nav-arrow" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
+                  <g transform="translate(-230 -276)">
+                    <line x2="5" y2="5" transform="translate(239 288)" fill="none" stroke-linecap="round" stroke-width="3"/>
+                    <line x1="5" y2="5" transform="translate(244 288)" fill="none" stroke-linecap="round" stroke-width="3"/>
+                  </g>
+                </svg>
+            </a>
+              <div class="nav-container">
+                <hr class="nav-separator nav-level-1">
+            
+            <a class="nav-level-2" href="../validation/headers-validation/">
+              Headers Validation
+            </a>
+            
+            <a class="nav-level-2" href="../validation/query-parameters-validation/">
+              Query Parameters Validation
+            </a>
+            
+            <a class="nav-level-2" href="../validation/body-validation/">
+              Body Validation
+            </a>
+            
+            <a class="nav-level-2" href="../validation/custom-validation/">
+              Custom Validation
+            </a>
+            </div>
+            <a class="nav-level-1" href="../../how-it-works/logs/">
+              Logs
+            </a>
+            
+            <a class="nav-level-1" href="../../how-it-works/session-management/">
+              Session Management
+            </a>
+            
+            <a class="nav-level-1" href="../../how-it-works/events/">
+              Events
+            </a>
+            
+            <a class="nav-level-1" href="../../how-it-works/error-handling/">
+              Error Handling
+            </a>
+            
+            <a class="nav-level-1" href="../../how-it-works/server-configuration/">
+              Server Configuration
+            </a>
+            
+            <a class="nav-level-1" href="../../how-it-works/assets/">
+              Assets
+            </a>
+            
+            <a class="nav-level-1" href="../../how-it-works/tests/">
+              Tests
+            </a>
+            
+            <a class="nav-level-1 nav-with-arrow" href="../../how-it-works/project-management/">
+              Project Management
+                <svg onclick="toggleMenuContainer(this, event)" class="nav-arrow" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
+                  <g transform="translate(-230 -276)">
+                    <line x2="5" y2="5" transform="translate(239 288)" fill="none" stroke-linecap="round" stroke-width="3"/>
+                    <line x1="5" y2="5" transform="translate(244 288)" fill="none" stroke-linecap="round" stroke-width="3"/>
+                  </g>
+                </svg>
+            </a>
+              <div class="nav-container">
+                <hr class="nav-separator nav-level-1">
+            
+            <a class="nav-level-2" href="../project-management/creating-a-project/">
+              Creating a Project
+            </a>
+            
+            <a class="nav-level-2" href="../project-management/adding-components/">
+              Adding Components
+            </a>
+            
+            <a class="nav-level-2" href="../project-management/path-aliases/">
+              Path Aliases
+            </a>
+            
+            <a class="nav-level-2" href="../project-management/building-the-source/">
+              Building the Source
+            </a>
+            
+            <a class="nav-level-2" href="../project-management/launching-the-server/">
+              Launching the Server
+            </a>
+            
+            <a class="nav-level-2" href="../project-management/running-the-tests/">
+              Running the Tests
+            </a>
+            
+            <a class="nav-level-2" href="../project-management/generating-typedocs/">
+              Generating TypeDocs
+            </a>
+            </div></div>
+            <a class="nav-level-0" href="../../guide/">
+              Guide
+            </a>
+            
+            <a class="nav-level-0 nav-with-arrow" href="../../reference/">
+              Reference
+                <svg onclick="toggleMenuContainer(this, event)" class="nav-arrow" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
+                  <g transform="translate(-230 -276)">
+                    <line x2="5" y2="5" transform="translate(239 288)" fill="none" stroke-linecap="round" stroke-width="3"/>
+                    <line x1="5" y2="5" transform="translate(244 288)" fill="none" stroke-linecap="round" stroke-width="3"/>
+                  </g>
+                </svg>
+            </a>
+              <div class="nav-container">
+                <hr class="nav-separator nav-level-0">
+            
+            <a class="nav-level-1 nav-with-arrow" href="../../reference/service-decorator/">
+              Service Decorator
+                <svg onclick="toggleMenuContainer(this, event)" class="nav-arrow" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
+                  <g transform="translate(-230 -276)">
+                    <line x2="5" y2="5" transform="translate(239 288)" fill="none" stroke-linecap="round" stroke-width="3"/>
+                    <line x1="5" y2="5" transform="translate(244 288)" fill="none" stroke-linecap="round" stroke-width="3"/>
+                  </g>
+                </svg>
+            </a>
+              <div class="nav-container">
+                <hr class="nav-separator nav-level-1">
+            
+            <a class="nav-level-2" href="../../reference/service-decorator/moduledecoratorargs/">
+              ModuleDecoratorArgs
+            </a>
+            </div>
+            <a class="nav-level-1 nav-with-arrow" href="../../reference/router-decorator/">
+              Router Decorator
+                <svg onclick="toggleMenuContainer(this, event)" class="nav-arrow" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
+                  <g transform="translate(-230 -276)">
+                    <line x2="5" y2="5" transform="translate(239 288)" fill="none" stroke-linecap="round" stroke-width="3"/>
+                    <line x1="5" y2="5" transform="translate(244 288)" fill="none" stroke-linecap="round" stroke-width="3"/>
+                  </g>
+                </svg>
+            </a>
+              <div class="nav-container">
+                <hr class="nav-separator nav-level-1">
+            
+            <a class="nav-level-2" href="../../reference/router-decorator/routerdecoratorargs/">
+              RouterDecoratorArgs
+            </a>
+            
+            <a class="nav-level-2 nav-with-arrow" href="../../reference/router-decorator/routedefinition/">
+              RouteDefinition
+                <svg onclick="toggleMenuContainer(this, event)" class="nav-arrow" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
+                  <g transform="translate(-230 -276)">
+                    <line x2="5" y2="5" transform="translate(239 288)" fill="none" stroke-linecap="round" stroke-width="3"/>
+                    <line x1="5" y2="5" transform="translate(244 288)" fill="none" stroke-linecap="round" stroke-width="3"/>
+                  </g>
+                </svg>
+            </a>
+              <div class="nav-container">
+                <hr class="nav-separator nav-level-2">
+            
+            <a class="nav-level-3" href="../../reference/router-decorator/routedefinition/routemethod/">
+              RouteMethod
+            </a>
+            
+            <a class="nav-level-3 nav-with-arrow" href="../../reference/router-decorator/routedefinition/validationrule/">
+              ValidationRule
+                <svg onclick="toggleMenuContainer(this, event)" class="nav-arrow" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
+                  <g transform="translate(-230 -276)">
+                    <line x2="5" y2="5" transform="translate(239 288)" fill="none" stroke-linecap="round" stroke-width="3"/>
+                    <line x1="5" y2="5" transform="translate(244 288)" fill="none" stroke-linecap="round" stroke-width="3"/>
+                  </g>
+                </svg>
+            </a>
+              <div class="nav-container">
+                <hr class="nav-separator nav-level-3">
+            
+            <a class="nav-level-4" href="../../reference/router-decorator/routedefinition/validationrule/validationtype/">
+              ValidationType
+            </a>
+            
+            <a class="nav-level-4" href="../../reference/router-decorator/routedefinition/validationrule/validatorfunction/">
+              ValidatorFunction
+            </a>
+            
+            <a class="nav-level-4" href="../../reference/router-decorator/routedefinition/validationrule/asyncvalidatorfunction/">
+              AsyncValidatorFunction
+            </a>
+            
+            <a class="nav-level-4" href="../../reference/router-decorator/routedefinition/validationrule/validationdefinition/">
+              ValidationDefinition
+            </a>
+            
+            <a class="nav-level-4" href="../../reference/router-decorator/routedefinition/validationrule/bodyvalidationdefinition/">
+              BodyValidationDefinition
+            </a>
+            </div></div>
+            <a class="nav-level-2" href="../../reference/router-decorator/corspolicy/">
+              CORSPolicy
+            </a>
+            </div>
+            <a class="nav-level-1" href="../../reference/component-hooks/">
+              Component Hooks
+            </a>
+            
+            <a class="nav-level-1 nav-with-arrow" href="../../reference/middleware-parameters/">
+              Middleware Parameters
+                <svg onclick="toggleMenuContainer(this, event)" class="nav-arrow" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
+                  <g transform="translate(-230 -276)">
+                    <line x2="5" y2="5" transform="translate(239 288)" fill="none" stroke-linecap="round" stroke-width="3"/>
+                    <line x1="5" y2="5" transform="translate(244 288)" fill="none" stroke-linecap="round" stroke-width="3"/>
+                  </g>
+                </svg>
+            </a>
+              <div class="nav-container">
+                <hr class="nav-separator nav-level-1">
+            
+            <a class="nav-level-2" href="../../reference/middleware-parameters/request/">
+              Request
+            </a>
+            
+            <a class="nav-level-2" href="../../reference/middleware-parameters/response/">
+              Response
+            </a>
+            
+            <a class="nav-level-2" href="../../reference/middleware-parameters/nextfunction/">
+              NextFunction
+            </a>
+            </div>
+            <a class="nav-level-1" href="../../reference/serverlogger/">
+              ServerLogger
+            </a>
+            
+            <a class="nav-level-1 nav-with-arrow" href="../../reference/serversessionmanager/">
+              ServerSessionManager
+                <svg onclick="toggleMenuContainer(this, event)" class="nav-arrow" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
+                  <g transform="translate(-230 -276)">
+                    <line x2="5" y2="5" transform="translate(239 288)" fill="none" stroke-linecap="round" stroke-width="3"/>
+                    <line x1="5" y2="5" transform="translate(244 288)" fill="none" stroke-linecap="round" stroke-width="3"/>
+                  </g>
+                </svg>
+            </a>
+              <div class="nav-container">
+                <hr class="nav-separator nav-level-1">
+            
+            <a class="nav-level-2" href="../../reference/serversessionmanager/session-events/">
+              Session Events
+            </a>
+            </div>
+            <a class="nav-level-1 nav-with-arrow" href="../../reference/servereventmanager/">
+              ServerEventManager
+                <svg onclick="toggleMenuContainer(this, event)" class="nav-arrow" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
+                  <g transform="translate(-230 -276)">
+                    <line x2="5" y2="5" transform="translate(239 288)" fill="none" stroke-linecap="round" stroke-width="3"/>
+                    <line x1="5" y2="5" transform="translate(244 288)" fill="none" stroke-linecap="round" stroke-width="3"/>
+                  </g>
+                </svg>
+            </a>
+              <div class="nav-container">
+                <hr class="nav-separator nav-level-1">
+            
+            <a class="nav-level-2" href="../../reference/servereventmanager/eventlistener/">
+              EventListener
+            </a>
+            
+            <a class="nav-level-2" href="../../reference/servereventmanager/eventlistenerwrapper/">
+              EventListenerWrapper
+            </a>
+            
+            <a class="nav-level-2" href="../../reference/servereventmanager/server-events/">
+              Server Events
+            </a>
+            </div>
+            <a class="nav-level-1" href="../../reference/servererror/">
+              ServerError
+            </a>
+            
+            <a class="nav-level-1 nav-with-arrow" href="../../reference/serverconfig/">
+              ServerConfig
+                <svg onclick="toggleMenuContainer(this, event)" class="nav-arrow" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
+                  <g transform="translate(-230 -276)">
+                    <line x2="5" y2="5" transform="translate(239 288)" fill="none" stroke-linecap="round" stroke-width="3"/>
+                    <line x1="5" y2="5" transform="translate(244 288)" fill="none" stroke-linecap="round" stroke-width="3"/>
+                  </g>
+                </svg>
+            </a>
+              <div class="nav-container">
+                <hr class="nav-separator nav-level-1">
+            
+            <a class="nav-level-2" href="../../reference/serverconfig/baseserverconfig/">
+              BaseServerConfig
+            </a>
+            </div>
+            <a class="nav-level-1" href="../../reference/globals/">
+              Globals
+            </a>
+            
+            <a class="nav-level-1" href="../../reference/validationrule-factories/">
+              ValidationRule Factories
+            </a>
+            
+            <a class="nav-level-1" href="../../reference/validatorfunctions/">
+              ValidatorFunctions
+            </a>
+            
+            <a class="nav-level-1" href="../../reference/validatorfunction-factories/">
+              ValidatorFunction Factories
+            </a>
+            
+            <a class="nav-level-1" href="../../reference/helpers/">
+              Helpers
+            </a>
+        </nav>
+        <footer>
+          <span>Version 1.0.0-alpha</span>
+          
+        </footer>
+      </div>
+      <div class="article-container">
+        <div class="backblur"></div>
+            <article>
+              
+            </article>
+              <hr class="content-separator">
+            <article>
+              
+            </article>
+        <footer>
+          <div class="footer-links">
+            <a href="https://npmjs.com/@chisel/steroids" class="footer-link" target="_blank">Download on NPM</a>
+            <a href="https://github.com/chisel/steroids" class="footer-link" target="_blank">View source</a>
+            <a href="https://github.com/chisel/steroids/issues" class="footer-link" target="_blank">Report a bug</a>
+          </div>
+          <span>Documentation generated by <a href="https://fluorite.js.org" target="_blank">Fluorite</a></span>
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>

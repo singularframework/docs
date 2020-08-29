@@ -1,0 +1,1516 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" type="image/svg+xml" href="./assets/theme/images/favicon.svg">
+    <link rel="mask-icon" color="white" href="./assets/theme/images/favicon.svg">
+    <title>Singular: Create smarter servers with Node.js - Singular: Create smarter servers with Node.js</title>
+    <link rel="stylesheet" href="./assets/theme/styles.css">
+    <style>
+      blockquote:before {
+        background-image: url('./assets/theme/images/icon-note.svg');
+      }
+    </style>
+    <script src="./assets/theme/scripts/steroids.js"></script>
+  </head>
+  <body>
+    <template id="button_link">
+      <a href="#">
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+        	 viewBox="0 0 512.092 512.092" style="enable-background:new 0 0 512.092 512.092;" xml:space="preserve">
+        	<path d="M312.453,199.601c-6.066-6.102-12.792-11.511-20.053-16.128c-19.232-12.315-41.59-18.859-64.427-18.859
+        	 	c-31.697-0.059-62.106,12.535-84.48,34.987L34.949,308.23c-22.336,22.379-34.89,52.7-34.91,84.318
+        	 	c-0.042,65.98,53.41,119.501,119.39,119.543c31.648,0.11,62.029-12.424,84.395-34.816l89.6-89.6
+        	 	c1.628-1.614,2.537-3.816,2.524-6.108c-0.027-4.713-3.87-8.511-8.583-8.484h-3.413c-18.72,0.066-37.273-3.529-54.613-10.581
+        	 	c-3.195-1.315-6.867-0.573-9.301,1.877l-64.427,64.512c-20.006,20.006-52.442,20.006-72.448,0
+        	 	c-20.006-20.006-20.006-52.442,0-72.448l108.971-108.885c19.99-19.965,52.373-19.965,72.363,0
+        	 	c13.472,12.679,34.486,12.679,47.957,0c5.796-5.801,9.31-13.495,9.899-21.675C322.976,216.108,319.371,206.535,312.453,199.601z"
+        	 	/>
+        	<path d="M477.061,34.993c-46.657-46.657-122.303-46.657-168.96,0l-89.515,89.429c-2.458,2.47-3.167,6.185-1.792,9.387
+        			c1.359,3.211,4.535,5.272,8.021,5.205h3.157c18.698-0.034,37.221,3.589,54.528,10.667c3.195,1.315,6.867,0.573,9.301-1.877
+        			l64.256-64.171c20.006-20.006,52.442-20.006,72.448,0c20.006,20.006,20.006,52.442,0,72.448l-80.043,79.957l-0.683,0.768
+        			l-27.989,27.819c-19.99,19.965-52.373,19.965-72.363,0c-13.472-12.679-34.486-12.679-47.957,0
+        			c-5.833,5.845-9.35,13.606-9.899,21.845c-0.624,9.775,2.981,19.348,9.899,26.283c9.877,9.919,21.433,18.008,34.133,23.893
+        			c1.792,0.853,3.584,1.536,5.376,2.304c1.792,0.768,3.669,1.365,5.461,2.048c1.792,0.683,3.669,1.28,5.461,1.792l5.035,1.365
+        			c3.413,0.853,6.827,1.536,10.325,2.133c4.214,0.626,8.458,1.025,12.715,1.195h5.973h0.512l5.12-0.597
+        			c1.877-0.085,3.84-0.512,6.059-0.512h2.901l5.888-0.853l2.731-0.512l4.949-1.024h0.939c20.961-5.265,40.101-16.118,55.381-31.403
+        			l108.629-108.629C523.718,157.296,523.718,81.65,477.061,34.993z"/>
+        </svg>
+      </a>
+    </template>
+    <header>
+      <svg class="button-menu" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" onclick="toggleLeftPane()">
+        <g transform="translate(-75 -25)">
+          <rect width="50" height="50" transform="translate(75 25)" fill="none"/>
+          <line x2="35" transform="translate(82.5 40)" fill="none" stroke-linecap="round" stroke-width="3"/>
+          <line x2="35" transform="translate(82.5 50)" fill="none" stroke-linecap="round" stroke-width="3"/>
+          <line x2="35" transform="translate(82.5 60)" fill="none" stroke-linecap="round" stroke-width="3"/>
+        </g>
+      </svg>
+      <a href=".">
+        <img src="./assets/theme/images/logo-header.svg" alt="Steroids">
+      </a>
+    </header>
+    <div class="main">
+      <div class="left-pane">
+        <nav>
+            
+            <a class="nav-level-0" href="./installation/">
+              Installation
+            </a>
+            
+            <a class="nav-level-0 nav-with-arrow" href="./how-it-works/">
+              How It Works
+                <svg onclick="toggleMenuContainer(this, event)" class="nav-arrow" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
+                  <g transform="translate(-230 -276)">
+                    <line x2="5" y2="5" transform="translate(239 288)" fill="none" stroke-linecap="round" stroke-width="3"/>
+                    <line x1="5" y2="5" transform="translate(244 288)" fill="none" stroke-linecap="round" stroke-width="3"/>
+                  </g>
+                </svg>
+            </a>
+              <div class="nav-container">
+                <hr class="nav-separator nav-level-0">
+            
+            <a class="nav-level-1" href="./how-it-works/components/">
+              Components
+            </a>
+            
+            <a class="nav-level-1" href="./how-it-works/services/">
+              Services
+            </a>
+            
+            <a class="nav-level-1" href="./how-it-works/routers/">
+              Routers
+            </a>
+            
+            <a class="nav-level-1" href="./how-it-works/cors/">
+              CORS
+            </a>
+            
+            <a class="nav-level-1 nav-with-arrow" href="./how-it-works/validation/">
+              Validation
+                <svg onclick="toggleMenuContainer(this, event)" class="nav-arrow" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
+                  <g transform="translate(-230 -276)">
+                    <line x2="5" y2="5" transform="translate(239 288)" fill="none" stroke-linecap="round" stroke-width="3"/>
+                    <line x1="5" y2="5" transform="translate(244 288)" fill="none" stroke-linecap="round" stroke-width="3"/>
+                  </g>
+                </svg>
+            </a>
+              <div class="nav-container">
+                <hr class="nav-separator nav-level-1">
+            
+            <a class="nav-level-2" href="./how-it-works/validation/headers-validation/">
+              Headers Validation
+            </a>
+            
+            <a class="nav-level-2" href="./how-it-works/validation/query-parameters-validation/">
+              Query Parameters Validation
+            </a>
+            
+            <a class="nav-level-2" href="./how-it-works/validation/body-validation/">
+              Body Validation
+            </a>
+            
+            <a class="nav-level-2" href="./how-it-works/validation/custom-validation/">
+              Custom Validation
+            </a>
+            </div>
+            <a class="nav-level-1" href="./how-it-works/logs/">
+              Logs
+            </a>
+            
+            <a class="nav-level-1" href="./how-it-works/session-management/">
+              Session Management
+            </a>
+            
+            <a class="nav-level-1" href="./how-it-works/events/">
+              Events
+            </a>
+            
+            <a class="nav-level-1" href="./how-it-works/error-handling/">
+              Error Handling
+            </a>
+            
+            <a class="nav-level-1" href="./how-it-works/server-configuration/">
+              Server Configuration
+            </a>
+            
+            <a class="nav-level-1" href="./how-it-works/assets/">
+              Assets
+            </a>
+            
+            <a class="nav-level-1" href="./how-it-works/tests/">
+              Tests
+            </a>
+            
+            <a class="nav-level-1 nav-with-arrow" href="./how-it-works/project-management/">
+              Project Management
+                <svg onclick="toggleMenuContainer(this, event)" class="nav-arrow" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
+                  <g transform="translate(-230 -276)">
+                    <line x2="5" y2="5" transform="translate(239 288)" fill="none" stroke-linecap="round" stroke-width="3"/>
+                    <line x1="5" y2="5" transform="translate(244 288)" fill="none" stroke-linecap="round" stroke-width="3"/>
+                  </g>
+                </svg>
+            </a>
+              <div class="nav-container">
+                <hr class="nav-separator nav-level-1">
+            
+            <a class="nav-level-2" href="./how-it-works/project-management/creating-a-project/">
+              Creating a Project
+            </a>
+            
+            <a class="nav-level-2" href="./how-it-works/project-management/adding-components/">
+              Adding Components
+            </a>
+            
+            <a class="nav-level-2" href="./how-it-works/project-management/path-aliases/">
+              Path Aliases
+            </a>
+            
+            <a class="nav-level-2" href="./how-it-works/project-management/building-the-source/">
+              Building the Source
+            </a>
+            
+            <a class="nav-level-2" href="./how-it-works/project-management/launching-the-server/">
+              Launching the Server
+            </a>
+            
+            <a class="nav-level-2" href="./how-it-works/project-management/running-the-tests/">
+              Running the Tests
+            </a>
+            
+            <a class="nav-level-2" href="./how-it-works/project-management/generating-typedocs/">
+              Generating TypeDocs
+            </a>
+            </div></div>
+            <a class="nav-level-0" href="./guide/">
+              Guide
+            </a>
+            
+            <a class="nav-level-0 nav-with-arrow" href="./reference/">
+              Reference
+                <svg onclick="toggleMenuContainer(this, event)" class="nav-arrow" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
+                  <g transform="translate(-230 -276)">
+                    <line x2="5" y2="5" transform="translate(239 288)" fill="none" stroke-linecap="round" stroke-width="3"/>
+                    <line x1="5" y2="5" transform="translate(244 288)" fill="none" stroke-linecap="round" stroke-width="3"/>
+                  </g>
+                </svg>
+            </a>
+              <div class="nav-container">
+                <hr class="nav-separator nav-level-0">
+            
+            <a class="nav-level-1 nav-with-arrow" href="./reference/service-decorator/">
+              Service Decorator
+                <svg onclick="toggleMenuContainer(this, event)" class="nav-arrow" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
+                  <g transform="translate(-230 -276)">
+                    <line x2="5" y2="5" transform="translate(239 288)" fill="none" stroke-linecap="round" stroke-width="3"/>
+                    <line x1="5" y2="5" transform="translate(244 288)" fill="none" stroke-linecap="round" stroke-width="3"/>
+                  </g>
+                </svg>
+            </a>
+              <div class="nav-container">
+                <hr class="nav-separator nav-level-1">
+            
+            <a class="nav-level-2" href="./reference/service-decorator/moduledecoratorargs/">
+              ModuleDecoratorArgs
+            </a>
+            </div>
+            <a class="nav-level-1 nav-with-arrow" href="./reference/router-decorator/">
+              Router Decorator
+                <svg onclick="toggleMenuContainer(this, event)" class="nav-arrow" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
+                  <g transform="translate(-230 -276)">
+                    <line x2="5" y2="5" transform="translate(239 288)" fill="none" stroke-linecap="round" stroke-width="3"/>
+                    <line x1="5" y2="5" transform="translate(244 288)" fill="none" stroke-linecap="round" stroke-width="3"/>
+                  </g>
+                </svg>
+            </a>
+              <div class="nav-container">
+                <hr class="nav-separator nav-level-1">
+            
+            <a class="nav-level-2" href="./reference/router-decorator/routerdecoratorargs/">
+              RouterDecoratorArgs
+            </a>
+            
+            <a class="nav-level-2 nav-with-arrow" href="./reference/router-decorator/routedefinition/">
+              RouteDefinition
+                <svg onclick="toggleMenuContainer(this, event)" class="nav-arrow" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
+                  <g transform="translate(-230 -276)">
+                    <line x2="5" y2="5" transform="translate(239 288)" fill="none" stroke-linecap="round" stroke-width="3"/>
+                    <line x1="5" y2="5" transform="translate(244 288)" fill="none" stroke-linecap="round" stroke-width="3"/>
+                  </g>
+                </svg>
+            </a>
+              <div class="nav-container">
+                <hr class="nav-separator nav-level-2">
+            
+            <a class="nav-level-3" href="./reference/router-decorator/routedefinition/routemethod/">
+              RouteMethod
+            </a>
+            
+            <a class="nav-level-3 nav-with-arrow" href="./reference/router-decorator/routedefinition/validationrule/">
+              ValidationRule
+                <svg onclick="toggleMenuContainer(this, event)" class="nav-arrow" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
+                  <g transform="translate(-230 -276)">
+                    <line x2="5" y2="5" transform="translate(239 288)" fill="none" stroke-linecap="round" stroke-width="3"/>
+                    <line x1="5" y2="5" transform="translate(244 288)" fill="none" stroke-linecap="round" stroke-width="3"/>
+                  </g>
+                </svg>
+            </a>
+              <div class="nav-container">
+                <hr class="nav-separator nav-level-3">
+            
+            <a class="nav-level-4" href="./reference/router-decorator/routedefinition/validationrule/validationtype/">
+              ValidationType
+            </a>
+            
+            <a class="nav-level-4" href="./reference/router-decorator/routedefinition/validationrule/validatorfunction/">
+              ValidatorFunction
+            </a>
+            
+            <a class="nav-level-4" href="./reference/router-decorator/routedefinition/validationrule/asyncvalidatorfunction/">
+              AsyncValidatorFunction
+            </a>
+            
+            <a class="nav-level-4" href="./reference/router-decorator/routedefinition/validationrule/validationdefinition/">
+              ValidationDefinition
+            </a>
+            
+            <a class="nav-level-4" href="./reference/router-decorator/routedefinition/validationrule/bodyvalidationdefinition/">
+              BodyValidationDefinition
+            </a>
+            </div></div>
+            <a class="nav-level-2" href="./reference/router-decorator/corspolicy/">
+              CORSPolicy
+            </a>
+            </div>
+            <a class="nav-level-1" href="./reference/component-hooks/">
+              Component Hooks
+            </a>
+            
+            <a class="nav-level-1 nav-with-arrow" href="./reference/middleware-parameters/">
+              Middleware Parameters
+                <svg onclick="toggleMenuContainer(this, event)" class="nav-arrow" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
+                  <g transform="translate(-230 -276)">
+                    <line x2="5" y2="5" transform="translate(239 288)" fill="none" stroke-linecap="round" stroke-width="3"/>
+                    <line x1="5" y2="5" transform="translate(244 288)" fill="none" stroke-linecap="round" stroke-width="3"/>
+                  </g>
+                </svg>
+            </a>
+              <div class="nav-container">
+                <hr class="nav-separator nav-level-1">
+            
+            <a class="nav-level-2" href="./reference/middleware-parameters/request/">
+              Request
+            </a>
+            
+            <a class="nav-level-2" href="./reference/middleware-parameters/response/">
+              Response
+            </a>
+            
+            <a class="nav-level-2" href="./reference/middleware-parameters/nextfunction/">
+              NextFunction
+            </a>
+            </div>
+            <a class="nav-level-1" href="./reference/serverlogger/">
+              ServerLogger
+            </a>
+            
+            <a class="nav-level-1 nav-with-arrow" href="./reference/serversessionmanager/">
+              ServerSessionManager
+                <svg onclick="toggleMenuContainer(this, event)" class="nav-arrow" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
+                  <g transform="translate(-230 -276)">
+                    <line x2="5" y2="5" transform="translate(239 288)" fill="none" stroke-linecap="round" stroke-width="3"/>
+                    <line x1="5" y2="5" transform="translate(244 288)" fill="none" stroke-linecap="round" stroke-width="3"/>
+                  </g>
+                </svg>
+            </a>
+              <div class="nav-container">
+                <hr class="nav-separator nav-level-1">
+            
+            <a class="nav-level-2" href="./reference/serversessionmanager/session-events/">
+              Session Events
+            </a>
+            </div>
+            <a class="nav-level-1 nav-with-arrow" href="./reference/servereventmanager/">
+              ServerEventManager
+                <svg onclick="toggleMenuContainer(this, event)" class="nav-arrow" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
+                  <g transform="translate(-230 -276)">
+                    <line x2="5" y2="5" transform="translate(239 288)" fill="none" stroke-linecap="round" stroke-width="3"/>
+                    <line x1="5" y2="5" transform="translate(244 288)" fill="none" stroke-linecap="round" stroke-width="3"/>
+                  </g>
+                </svg>
+            </a>
+              <div class="nav-container">
+                <hr class="nav-separator nav-level-1">
+            
+            <a class="nav-level-2" href="./reference/servereventmanager/eventlistener/">
+              EventListener
+            </a>
+            
+            <a class="nav-level-2" href="./reference/servereventmanager/eventlistenerwrapper/">
+              EventListenerWrapper
+            </a>
+            
+            <a class="nav-level-2" href="./reference/servereventmanager/server-events/">
+              Server Events
+            </a>
+            </div>
+            <a class="nav-level-1" href="./reference/servererror/">
+              ServerError
+            </a>
+            
+            <a class="nav-level-1 nav-with-arrow" href="./reference/serverconfig/">
+              ServerConfig
+                <svg onclick="toggleMenuContainer(this, event)" class="nav-arrow" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
+                  <g transform="translate(-230 -276)">
+                    <line x2="5" y2="5" transform="translate(239 288)" fill="none" stroke-linecap="round" stroke-width="3"/>
+                    <line x1="5" y2="5" transform="translate(244 288)" fill="none" stroke-linecap="round" stroke-width="3"/>
+                  </g>
+                </svg>
+            </a>
+              <div class="nav-container">
+                <hr class="nav-separator nav-level-1">
+            
+            <a class="nav-level-2" href="./reference/serverconfig/baseserverconfig/">
+              BaseServerConfig
+            </a>
+            </div>
+            <a class="nav-level-1" href="./reference/globals/">
+              Globals
+            </a>
+            
+            <a class="nav-level-1" href="./reference/validationrule-factories/">
+              ValidationRule Factories
+            </a>
+            
+            <a class="nav-level-1" href="./reference/validatorfunctions/">
+              ValidatorFunctions
+            </a>
+            
+            <a class="nav-level-1" href="./reference/validatorfunction-factories/">
+              ValidatorFunction Factories
+            </a>
+            
+            <a class="nav-level-1" href="./reference/helpers/">
+              Helpers
+            </a>
+        </nav>
+        <footer>
+          <span>Version 1.0.0-alpha</span>
+          
+        </footer>
+      </div>
+      <div class="article-container">
+        <div class="backblur"></div>
+            <article>
+              <h1 id="express-on-steroids">Express on Steroids!</h1>
+<p>Steroids helps building backend solutions with Node.js, Express, and TypeScript by introducing new components that are easy and fast to develop.</p>
+<p>Here&#39;s a quick list of features Steroids provides:</p>
+<ul>
+<li>TypeScript enabled</li>
+<li>Powered by Express</li>
+<li>Automatic code minification</li>
+<li>Logic is encapsulated into &quot;Services&quot; and router middlewares are grouped as &quot;Routers&quot;</li>
+<li>Routes are easily defined using the Router decorator</li>
+<li>Built-in input validation mechanism with routers (request body, headers, query parameters, etc.)</li>
+<li>Ability to extend the validation logic with custom validators</li>
+<li>Dynamic route and service installation</li>
+<li>Dynamic service injection without circular dependency issues</li>
+<li>Path alias support for easier imports</li>
+<li>Customizable built-in logger with file manager and auto archiver</li>
+<li>Unit testing with Mocha and Chai</li>
+<li>TypeDoc ready</li>
+</ul>
+<p>You can use this repository/template directly or through the <a href="https://github.com/chisel/steroids">Steroids CLI</a> for even faster development (recommended). <a href="https://github.com/chisel/steroids">Steroids CLI</a> allows creating new backend projects using Steroids template (with custom configuration) and also to add components (such as routers, services, etc.) with template code.</p>
+<h1 id="index">Index</h1>
+<ul>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#npm-scripts">NPM Scripts</a></li>
+<li><a href="#launching-the-server">Launching the Server</a></li>
+<li><a href="#development">Development</a><ul>
+<li><a href="#services">Services</a></li>
+<li><a href="#routers">Routers</a><ul>
+<li><a href="#defining-routes">Defining Routes</a></li>
+<li><a href="#input-validation">Input Validation</a><ul>
+<li><a href="#header-validation-example">Header Validation Example</a></li>
+<li><a href="#query-parameter-validation-example">Query Parameter Validation Example</a></li>
+<li><a href="#body-validation-example">Body Validation Example</a></li>
+<li><a href="#body-validation-enums">Body Validation: Enums</a></li>
+<li><a href="#body-validation-array-of-objects">Body Validation: Arrays Of Objects</a></li>
+<li><a href="#body-validation-api">Body Validation API</a></li>
+<li><a href="#custom-body-validation">Custom Body Validation</a></li>
+<li><a href="#custom-validation">Custom Validation</a></li>
+<li><a href="#custom-async-validation">Custom Async Validation</a></li>
+<li><a href="#custom-error-messages">Custom Error Messages</a></li>
+</ul>
+</li>
+<li><a href="#cors-policy">CORS Policy</a><ul>
+<li><a href="#cors-policy-example">CORS Policy Example</a></li>
+<li><a href="#modular-cors-policy-example">Modular CORS Policy Example</a></li>
+</ul>
+</li>
+<li><a href="#serving-static-files">Serving Static Files</a></li>
+</ul>
+</li>
+<li><a href="#module-hooks">Module Hooks</a><ul>
+<li><a href="#injection-hook">Injection Hook</a></li>
+<li><a href="#config-hook">Config Hook</a></li>
+<li><a href="#init-hook">Init Hook</a></li>
+</ul>
+</li>
+<li><a href="#events-manager">Events Manager</a><ul>
+<li><a href="#server-events">Server Events</a></li>
+</ul>
+</li>
+<li><a href="#server-logger">Server Logger</a><ul>
+<li><a href="#saving-logs-on-disk">Saving Logs on Disk</a><ul>
+<li><a href="#logs-max-age-control">Logs Max Age Control</a></li>
+</ul>
+</li>
+<li><a href="#log-levels">Log Levels</a></li>
+<li><a href="#built-in-logging">Built-in Logging</a><ul>
+<li><a href="#sensitive-logs">Sensitive Logs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#server-config">Server Config</a><ul>
+<li><a href="#config-injection">Config Injection</a></li>
+<li><a href="#config-expansion">Config Expansion</a></li>
+</ul>
+</li>
+<li><a href="#server-assets">Server Assets</a><ul>
+<li><a href="#assets-example">Assets Example</a></li>
+</ul>
+</li>
+<li><a href="#server-error">Server Error</a></li>
+<li><a href="#testing">Testing</a></li>
+</ul>
+</li>
+<li><a href="#notes">Notes</a></li>
+</ul>
+<h1 id="installation">Installation</h1>
+<ol>
+<li>Clone this repo</li>
+<li><code>npm install</code></li>
+<li>That&#39;s it!</li>
+</ol>
+<h1 id="npm-scripts">NPM Scripts</h1>
+<ul>
+<li><code>npm start</code>: Builds and runs the server.</li>
+<li><code>npm test</code>: Builds and runs the tests.</li>
+<li><code>npm run build</code>: Build the server into <code>dist</code>.</li>
+<li><code>npm run launch</code>: Runs the last build.</li>
+<li><code>npm run docs</code>: Builds the internal documentation.</li>
+</ul>
+<h1 id="launching-the-server">Launching the Server</h1>
+<p>If launching from the project root, run any of the following:</p>
+<ul>
+<li><code>npm run launch</code></li>
+<li><code>npm run start</code> (builds first)</li>
+<li><code>sd run</code> (using <a href="https://github.com/chisel/steroids">Steroids CLI</a>)</li>
+<li><code>node dist/@steroids/main</code></li>
+</ul>
+<p>If running from the dist directory, run <code>node @steroids/main</code></p>
+<blockquote>
+<p><strong>NOTE:</strong> If running the server from any other directory where CWD is not dist or project root, path aliases (TypeScript paths defined in tsconfig.json) will fail to resolve.</p>
+</blockquote>
+<h1 id="development">Development</h1>
+<p>Steroids introduces two new components to work with: Services and Routers.</p>
+<h2 id="services">Services</h2>
+<p>A service is basically a singleton class which is shared and accessible throughout the whole app (really similar to Angular singleton/global services).</p>
+<p>To build a service, simply create a file with the extension <code>.service.ts</code> anywhere inside the <code>src</code> directory and decorate it using the <code>@Service</code> decorator as shown below:</p>
+<pre><code class="language-ts"><span class="token comment">// all imports are from ''@steroids/core'</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Service <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@steroids/core'</span><span class="token punctuation">;</span>
+
+@<span class="token function">Service</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  name<span class="token operator">:</span> <span class="token string">'foo'</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">FooService</span> <span class="token punctuation">{</span>
+
+  <span class="token function">log</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Foo service!'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span></code></pre>
+<p>This file will be automatically picked up by the server, so there&#39;s no need for any installation. You can then inject these services into your routers and also into other services, as shown below:</p>
+<pre><code class="language-ts"><span class="token keyword">import</span> <span class="token punctuation">{</span> Service<span class="token punctuation">,</span> OnInjection <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@steroids/core'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> FooService <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@steroids/service/foo'</span><span class="token punctuation">;</span> <span class="token comment">// For typings</span>
+
+@<span class="token function">Service</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  name<span class="token operator">:</span> <span class="token string">'bar'</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">BarService</span> <span class="token keyword">implements</span> <span class="token class-name">OnInjection</span> <span class="token punctuation">{</span>
+
+  <span class="token keyword">private</span> foo<span class="token operator">:</span> FooService<span class="token punctuation">;</span>
+
+  <span class="token comment">// Inject the service</span>
+  <span class="token function">onInjection</span><span class="token punctuation">(</span>services<span class="token operator">:</span> <span class="token builtin">any</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>foo <span class="token operator">=</span> services<span class="token punctuation">.</span>foo<span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>foo<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Logs: Foo service!</span>
+  <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span></code></pre>
+<h2 id="routers">Routers</h2>
+<p>Similar to services, you can build a router by creating a file with the extension <code>.router.ts</code> stored anywhere inside the <code>src</code> directory. The <code>@Router</code> decorator is then used to decorate the class as a router while providing route definitions and other metadata.</p>
+<pre><code class="language-ts"><span class="token keyword">import</span> <span class="token punctuation">{</span> Router<span class="token punctuation">,</span> OnInjection <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@steroids/core'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> BarService <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@steroids/service/bar'</span><span class="token punctuation">;</span>
+
+@<span class="token function">Router</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  name<span class="token operator">:</span> <span class="token string">'router1'</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">Router1</span> <span class="token keyword">implements</span> <span class="token class-name">OnInjection</span> <span class="token punctuation">{</span>
+
+  <span class="token keyword">private</span> bar<span class="token operator">:</span> BarService<span class="token punctuation">;</span>
+
+  <span class="token function">onInjection</span><span class="token punctuation">(</span>services<span class="token operator">:</span> <span class="token builtin">any</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>bar <span class="token operator">=</span> services<span class="token punctuation">.</span>bar<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span></code></pre>
+<h3 id="defining-routes">Defining Routes</h3>
+<p>The <code>@Router</code> decorator accepts the following properties:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Key</th>
+<th align="center">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">name</td>
+<td align="center">string</td>
+<td align="left">The name of the router (only used for logging).</td>
+</tr>
+<tr>
+<td align="left">priority</td>
+<td align="center">number</td>
+<td align="left">Routers are sorted by priority before mounting their middleware in the Express stack (defaults to <code>0</code>).</td>
+</tr>
+<tr>
+<td align="left">routes</td>
+<td align="center">RouteDefinition[]</td>
+<td align="left">An array of route definitions.</td>
+</tr>
+<tr>
+<td align="left">corsPolicy</td>
+<td align="center">cors.CorsOptions</td>
+<td align="left">No</td>
+</tr>
+</tbody></table>
+<p>The <code>RouteDefinition</code> interface is as follows:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Key</th>
+<th align="center">Type</th>
+<th align="center">Required</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">path</td>
+<td align="center">string</td>
+<td align="center">Yes</td>
+<td align="left">The path of the route (identical to app.use(<strong>path</strong>)).</td>
+</tr>
+<tr>
+<td align="left">handler</td>
+<td align="center">string</td>
+<td align="center">Yes</td>
+<td align="left">The name of the route handler function (must exist in the router class).</td>
+</tr>
+<tr>
+<td align="left">method</td>
+<td align="center">RouteMethod</td>
+<td align="center">No</td>
+<td align="left">The HTTP method of the route. If not provided, the route will cover all methods (global).</td>
+</tr>
+<tr>
+<td align="left">validate</td>
+<td align="center">ValidationRule[]</td>
+<td align="center">No</td>
+<td align="left">Used to easily install validators for validating input (body, header, etc.)</td>
+</tr>
+<tr>
+<td align="left">corsPolicy</td>
+<td align="center">cors.CorsOptions</td>
+<td align="center">No</td>
+<td align="left"><a href="#cors-policy">CORS policy</a> for the route (overrides router CORS policy).</td>
+</tr>
+</tbody></table>
+<p>The following is an example of a simple router which defines the route <code>GET /test</code> linked to the <code>Router1.routeHandler1</code> route handler:</p>
+<pre><code class="language-ts"><span class="token keyword">import</span> <span class="token punctuation">{</span> Router<span class="token punctuation">,</span> RouteMethod <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@steroids/core'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Request<span class="token punctuation">,</span> Response<span class="token punctuation">,</span> NextFunction <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'express'</span><span class="token punctuation">;</span>
+
+@<span class="token function">Router</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  name<span class="token operator">:</span> <span class="token string">'router1'</span><span class="token punctuation">,</span>
+  routes<span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span> path<span class="token operator">:</span> <span class="token string">'/test'</span><span class="token punctuation">,</span> method<span class="token operator">:</span> RouteMethod<span class="token punctuation">.</span><span class="token constant">GET</span><span class="token punctuation">,</span> handler<span class="token operator">:</span> <span class="token string">'routeHandler1'</span> <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">Router1</span> <span class="token punctuation">{</span>
+
+  <span class="token function">routeHandler1</span><span class="token punctuation">(</span>req<span class="token operator">:</span> Request<span class="token punctuation">,</span> res<span class="token operator">:</span> Response<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    res<span class="token punctuation">.</span><span class="token function">status</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token string">'OK'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span></code></pre>
+<h3 id="input-validation">Input Validation</h3>
+<p>There are four types of validation in routers: Headers, Query Parameters, Body (only JSON and urlencoded), and custom validation:</p>
+<ol>
+<li><code>header({ name: value, ... })</code>: With header validation you can check if headers are present and set with the required value.</li>
+<li><code>query([&#39;paramName&#39;, ...])</code>: The query parameters validator can only check the presence of the query input.</li>
+<li><code>body({ key: ValidatorFunction })</code>: Body validators can create complex validation with ease by combining different logic on each key validation.</li>
+<li><code>custom(ValidatorFunction)</code>: If none of the above fit your needs, you can always take control!</li>
+</ol>
+<blockquote>
+<p>Note: You can stack multiple validators of the same kind inside the <code>validate</code> array.</p>
+</blockquote>
+<p>When validation is used, the requests that won&#39;t pass the validation will automatically get rejected with a validation error.</p>
+<h4 id="header-validation-example">Header Validation Example</h4>
+<pre><code class="language-ts"><span class="token keyword">import</span> <span class="token punctuation">{</span> Router<span class="token punctuation">,</span> RouteMethod<span class="token punctuation">,</span> header <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@steroids/core'</span><span class="token punctuation">;</span>
+
+@<span class="token function">Router</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  name<span class="token operator">:</span> <span class="token string">'router1'</span><span class="token punctuation">,</span>
+  priority<span class="token operator">:</span> <span class="token number">100</span><span class="token punctuation">,</span>
+  routes<span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span> path<span class="token operator">:</span> <span class="token string">'/postdata'</span><span class="token punctuation">,</span> handler<span class="token operator">:</span> <span class="token string">'postHandler'</span><span class="token punctuation">,</span> method<span class="token operator">:</span> RouteMethod<span class="token punctuation">.</span><span class="token constant">POST</span><span class="token punctuation">,</span> validate<span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token function">header</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token string">'content-type'</span><span class="token operator">:</span> <span class="token string">'application/json'</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">]</span><span class="token punctuation">}</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">Router1</span> <span class="token punctuation">{</span>
+
+  <span class="token function">postHandler</span><span class="token punctuation">(</span>req<span class="token punctuation">,</span> res<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+    <span class="token comment">// req.body is ensured to be valid JSON</span>
+
+  <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span></code></pre>
+<h4 id="query-parameter-validation-example">Query Parameter Validation Example</h4>
+<pre><code class="language-ts"><span class="token keyword">import</span> <span class="token punctuation">{</span> Router<span class="token punctuation">,</span> query <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@steroids/core'</span><span class="token punctuation">;</span>
+
+@<span class="token function">Router</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  name<span class="token operator">:</span> <span class="token string">'router1'</span><span class="token punctuation">,</span>
+  priority<span class="token operator">:</span> <span class="token number">100</span><span class="token punctuation">,</span>
+  routes<span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span> path<span class="token operator">:</span> <span class="token string">'*'</span><span class="token punctuation">,</span> handler<span class="token operator">:</span> <span class="token string">'authHandler'</span><span class="token punctuation">,</span> validate<span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token function">query</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'token'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token punctuation">]</span><span class="token punctuation">}</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">Router1</span> <span class="token punctuation">{</span>
+
+  <span class="token function">authHandler</span><span class="token punctuation">(</span>req<span class="token punctuation">,</span> res<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+    <span class="token comment">// req.query.token is definitely provided</span>
+
+  <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span></code></pre>
+<h4 id="body-validation-example">Body Validation Example</h4>
+<p>Now let&#39;s get crazy! Let&#39;s write a validator which requires the following JSON body:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Key</th>
+<th align="left">Requirement</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">title</td>
+<td align="left">Must be present and a valid string.</td>
+</tr>
+<tr>
+<td align="left">authors</td>
+<td align="left">Must be present and a valid array of strings with at least one entry.</td>
+</tr>
+<tr>
+<td align="left">co-authors</td>
+<td align="left">Optional, but if present, it has the same requirement as <code>authors</code> but all entries must be prefixed with <code>co-</code>!</td>
+</tr>
+<tr>
+<td align="left">release</td>
+<td align="left">A namespace.</td>
+</tr>
+<tr>
+<td align="left">release.year</td>
+<td align="left">Must be a valid number between <code>2000</code> and <code>2019</code>.</td>
+</tr>
+<tr>
+<td align="left">release.sells</td>
+<td align="left">Must be a valid number.</td>
+</tr>
+<tr>
+<td align="left">price</td>
+<td align="left">Cannot be a boolean.</td>
+</tr>
+</tbody></table>
+<pre><code class="language-ts"><span class="token keyword">import</span> <span class="token punctuation">{</span>
+  Router<span class="token punctuation">,</span>
+  RouteMethod<span class="token punctuation">,</span>
+  body<span class="token punctuation">,</span>
+  <span class="token keyword">type</span><span class="token punctuation">,</span>
+  len<span class="token punctuation">,</span>
+  opt<span class="token punctuation">,</span>
+  and<span class="token punctuation">,</span>
+  match<span class="token punctuation">,</span>
+  not
+<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@steroids/core'</span><span class="token punctuation">;</span>
+
+@<span class="token function">Router</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  name<span class="token operator">:</span> <span class="token string">'router1'</span><span class="token punctuation">,</span>
+  priority<span class="token operator">:</span> <span class="token number">100</span><span class="token punctuation">,</span>
+  routes<span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span> path<span class="token operator">:</span> <span class="token string">'/book/new'</span><span class="token punctuation">,</span> handler<span class="token operator">:</span> <span class="token string">'newBook'</span><span class="token punctuation">,</span> method<span class="token operator">:</span> RouteMethod<span class="token punctuation">.</span><span class="token constant">POST</span><span class="token punctuation">,</span> validate<span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token function">body</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        title<span class="token operator">:</span> <span class="token keyword">type</span><span class="token punctuation">.</span><span class="token builtin">string</span><span class="token punctuation">,</span>
+        authors<span class="token operator">:</span> <span class="token keyword">type</span><span class="token punctuation">.</span><span class="token function">array</span><span class="token punctuation">(</span><span class="token keyword">type</span><span class="token punctuation">.</span><span class="token builtin">string</span><span class="token punctuation">,</span> len<span class="token punctuation">.</span><span class="token function">min</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token string">'co-authors'</span><span class="token operator">:</span> <span class="token function">opt</span><span class="token punctuation">(</span><span class="token keyword">type</span><span class="token punctuation">.</span><span class="token function">array</span><span class="token punctuation">(</span><span class="token function">and</span><span class="token punctuation">(</span><span class="token keyword">type</span><span class="token punctuation">.</span><span class="token builtin">string</span><span class="token punctuation">,</span> <span class="token function">match</span><span class="token punctuation">(</span><span class="token regex">/^co-.+$/</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> len<span class="token punctuation">.</span><span class="token function">min</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        release<span class="token operator">:</span> <span class="token punctuation">{</span>
+          year<span class="token operator">:</span> <span class="token function">and</span><span class="token punctuation">(</span><span class="token keyword">type</span><span class="token punctuation">.</span><span class="token builtin">number</span><span class="token punctuation">,</span> <span class="token function">range</span><span class="token punctuation">(</span><span class="token number">2000</span><span class="token punctuation">,</span> <span class="token number">2019</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+          sells<span class="token operator">:</span> <span class="token keyword">type</span><span class="token punctuation">.</span><span class="token builtin">number</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        price<span class="token operator">:</span> <span class="token function">not</span><span class="token punctuation">(</span><span class="token keyword">type</span><span class="token punctuation">.</span><span class="token builtin">boolean</span><span class="token punctuation">)</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">]</span><span class="token punctuation">}</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">Router1</span> <span class="token punctuation">{</span>
+
+  <span class="token function">newBook</span><span class="token punctuation">(</span>req<span class="token punctuation">,</span> res<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+    <span class="token comment">// req.body has passed the validation test</span>
+
+  <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span></code></pre>
+<h4 id="body-validation-enums">Body Validation: Enums</h4>
+<p>Properties of the body object can be checked against any enums (including string enums) using the <code>type.ofenum</code> validator:</p>
+<pre><code class="language-ts"><span class="token keyword">import</span> <span class="token punctuation">{</span>
+  Router<span class="token punctuation">,</span>
+  RouteMethod<span class="token punctuation">,</span>
+  body<span class="token punctuation">,</span>
+  <span class="token keyword">type</span>
+<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@steroids/core'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">enum</span> Category <span class="token punctuation">{</span>
+  Category1<span class="token punctuation">,</span>
+  Category2
+<span class="token punctuation">}</span>
+
+@<span class="token function">Router</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  name<span class="token operator">:</span> <span class="token string">'router1'</span><span class="token punctuation">,</span>
+  priority<span class="token operator">:</span> <span class="token number">100</span><span class="token punctuation">,</span>
+  routes<span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span> path<span class="token operator">:</span> <span class="token string">'/test'</span><span class="token punctuation">,</span> handler<span class="token operator">:</span> <span class="token string">'testHandler'</span><span class="token punctuation">,</span> method<span class="token operator">:</span> RouteMethod<span class="token punctuation">.</span><span class="token constant">POST</span><span class="token punctuation">,</span> validate<span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token function">body</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        category<span class="token operator">:</span> <span class="token keyword">type</span><span class="token punctuation">.</span><span class="token function">ofenum</span><span class="token punctuation">(</span>Category<span class="token punctuation">)</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">]</span><span class="token punctuation">}</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">Router1</span> <span class="token punctuation">{</span>
+
+  <span class="token function">testHandler</span><span class="token punctuation">(</span>req<span class="token punctuation">,</span> res<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+    <span class="token comment">// req.body has passed the validation test</span>
+
+  <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span></code></pre>
+<h4 id="body-validation-arrays-of-objects">Body Validation: Arrays Of Objects</h4>
+<p>An array of objects can be validated using the <code>sub</code> validator. It takes a body validator object (the same object the <code>body</code> function takes except there can be no nested objects) and validates all the items inside the array against it:</p>
+<pre><code class="language-ts"><span class="token keyword">import</span> <span class="token punctuation">{</span>
+  Router<span class="token punctuation">,</span>
+  RouteMethod<span class="token punctuation">,</span>
+  body<span class="token punctuation">,</span>
+  <span class="token keyword">type</span><span class="token punctuation">,</span>
+  sub<span class="token punctuation">,</span>
+  len
+<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@steroids/core'</span><span class="token punctuation">;</span>
+
+@<span class="token function">Router</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  name<span class="token operator">:</span> <span class="token string">'router1'</span><span class="token punctuation">,</span>
+  priority<span class="token operator">:</span> <span class="token number">100</span><span class="token punctuation">,</span>
+  routes<span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span> path<span class="token operator">:</span> <span class="token string">'/test'</span><span class="token punctuation">,</span> handler<span class="token operator">:</span> <span class="token string">'testHandler'</span><span class="token punctuation">,</span> method<span class="token operator">:</span> RouteMethod<span class="token punctuation">.</span><span class="token constant">POST</span><span class="token punctuation">,</span> validate<span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token function">body</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        authors<span class="token operator">:</span> <span class="token keyword">type</span><span class="token punctuation">.</span><span class="token function">array</span><span class="token punctuation">(</span><span class="token function">sub</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+          firstName<span class="token operator">:</span> <span class="token keyword">type</span><span class="token punctuation">.</span><span class="token builtin">string</span><span class="token punctuation">,</span>
+          lastName<span class="token operator">:</span> <span class="token keyword">type</span><span class="token punctuation">.</span><span class="token builtin">string</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span> len<span class="token punctuation">.</span><span class="token function">min</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">]</span><span class="token punctuation">}</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">Router1</span> <span class="token punctuation">{</span>
+
+  <span class="token function">testHandler</span><span class="token punctuation">(</span>req<span class="token punctuation">,</span> res<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+    <span class="token comment">// req.body has passed the validation test</span>
+
+  <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span></code></pre>
+<h4 id="body-validation-api">Body Validation API</h4>
+<p>Here&#39;s an in-depth documentation on all the built-in body validator functions:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Validator</th>
+<th align="left">Signature</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">type.string</td>
+<td align="left">NA</td>
+<td align="left">Checks if the value is a valid string.</td>
+</tr>
+<tr>
+<td align="left">type.number</td>
+<td align="left">NA</td>
+<td align="left">Checks if the value is a valid number.</td>
+</tr>
+<tr>
+<td align="left">type.boolean</td>
+<td align="left">NA</td>
+<td align="left">Checks if the value is a valid boolean.</td>
+</tr>
+<tr>
+<td align="left">type.nil</td>
+<td align="left">NA</td>
+<td align="left">Checks if the value is null.</td>
+</tr>
+<tr>
+<td align="left">type.array</td>
+<td align="left">type.array(<em>[validator, arrayValidator]</em>)</td>
+<td align="left">Checks if the value is a valid array. If the validator is provided, it also validates each item of the array against it, if the arrayValidator is provided, the array itself is validated against it (useful for enforcing length restrictions on the array).</td>
+</tr>
+<tr>
+<td align="left">type.ofenum</td>
+<td align="left">type.ofenum(enumerator)</td>
+<td align="left">Checks if the value is included in the given enumerator.</td>
+</tr>
+<tr>
+<td align="left">equal</td>
+<td align="left">equal(val)</td>
+<td align="left">Checks if the body value is equal to the given value.</td>
+</tr>
+<tr>
+<td align="left">or</td>
+<td align="left">or(...validators)</td>
+<td align="left">ORs all given validators.</td>
+</tr>
+<tr>
+<td align="left">and</td>
+<td align="left">and(...validators)</td>
+<td align="left">ANDs all given validators.</td>
+</tr>
+<tr>
+<td align="left">not</td>
+<td align="left">not(validator)</td>
+<td align="left">Negates the given validator.</td>
+</tr>
+<tr>
+<td align="left">opt</td>
+<td align="left">opt(validator)</td>
+<td align="left">Applies the given validator only if the value is present (makes the value optional).</td>
+</tr>
+<tr>
+<td align="left">match</td>
+<td align="left">match(regex)</td>
+<td align="left">Validates the value against the given regular expression (without string type check).</td>
+</tr>
+<tr>
+<td align="left">num.min</td>
+<td align="left">num.min(val)</td>
+<td align="left">Checks if the value is greater than or equal to the given number.</td>
+</tr>
+<tr>
+<td align="left">num.max</td>
+<td align="left">num.max(val)</td>
+<td align="left">Checks if the value is less than or equal to the given number.</td>
+</tr>
+<tr>
+<td align="left">num.range</td>
+<td align="left">num.range(min, max)</td>
+<td align="left">Checks if the value is between the given range (inclusive).</td>
+</tr>
+<tr>
+<td align="left">len.min</td>
+<td align="left">len.min(val)</td>
+<td align="left">Checks if the length of the value is greater than or equal to the given number.</td>
+</tr>
+<tr>
+<td align="left">len.max</td>
+<td align="left">len.max(val)</td>
+<td align="left">Checks if the length of the value is less than or equal to the given number.</td>
+</tr>
+<tr>
+<td align="left">len.range</td>
+<td align="left">len.range(min, max)</td>
+<td align="left">Checks if the length of the value is between the given range (inclusive).</td>
+</tr>
+<tr>
+<td align="left">sub</td>
+<td align="left">sub(bodyValidator)</td>
+<td align="left">Validates an object against the given flat body validator (useful for validating arrays of objects).</td>
+</tr>
+</tbody></table>
+<h4 id="custom-body-validation">Custom Body Validation</h4>
+<p>If you need to perform a more complex body validation, you can always create a validator function or factory that takes arguments and returns a validator function. Below is an example of a custom body validator which validates the property <code>oddOnly</code> on the body using a validator function and <code>evenOnly</code> using a validator factory:</p>
+<pre><code class="language-ts"><span class="token keyword">import</span> <span class="token punctuation">{</span>
+  Router<span class="token punctuation">,</span>
+  RouteMethod<span class="token punctuation">,</span>
+  body<span class="token punctuation">,</span>
+  <span class="token keyword">type</span><span class="token punctuation">,</span>
+  ValidatorFunction
+<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@steroids/core'</span><span class="token punctuation">;</span>
+
+@<span class="token function">Router</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  name<span class="token operator">:</span> <span class="token string">'router1'</span><span class="token punctuation">,</span>
+  priority<span class="token operator">:</span> <span class="token number">100</span><span class="token punctuation">,</span>
+  routes<span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span> path<span class="token operator">:</span> <span class="token string">'/test'</span><span class="token punctuation">,</span> handler<span class="token operator">:</span> <span class="token string">'testHandler'</span><span class="token punctuation">,</span> method<span class="token operator">:</span> RouteMethod<span class="token punctuation">.</span><span class="token constant">POST</span><span class="token punctuation">,</span> validate<span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token function">body</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        oddOnly<span class="token operator">:</span> odd<span class="token punctuation">,</span>
+        evenOnly<span class="token operator">:</span> <span class="token function">parity</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">]</span><span class="token punctuation">}</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">Router1</span> <span class="token punctuation">{</span>
+
+  <span class="token function">testHandler</span><span class="token punctuation">(</span>req<span class="token punctuation">,</span> res<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+    <span class="token comment">// req.body has passed the validation test</span>
+
+  <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">odd</span><span class="token punctuation">(</span>value<span class="token operator">:</span> <span class="token builtin">any</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">boolean</span> <span class="token punctuation">{</span>
+
+  <span class="token comment">// Reusing type.number validator function</span>
+  <span class="token keyword">return</span> <span class="token keyword">type</span><span class="token punctuation">.</span><span class="token function">number</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>value <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">===</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">parity</span><span class="token punctuation">(</span>odd<span class="token operator">:</span> <span class="token builtin">boolean</span><span class="token punctuation">)</span><span class="token operator">:</span> ValidatorFunction <span class="token punctuation">{</span>
+
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>value<span class="token operator">:</span> <span class="token builtin">any</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">boolean</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">return</span> <span class="token keyword">type</span><span class="token punctuation">.</span><span class="token function">number</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>value <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">===</span> <span class="token punctuation">(</span>odd <span class="token operator">?</span> <span class="token number">1</span> <span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span></code></pre>
+<blockquote>
+<p><strong>NOTE:</strong> <a href="#custom-error-messages">Read about custom error messages.</a></p>
+</blockquote>
+<h4 id="custom-validation">Custom Validation</h4>
+<p>If you need to do something more complex or unique and still want to benefit from reusability and the auto-respond feature of the validators, you can create a function with this signature <code>(req: Request) =&gt; boolean|Error</code> and pass it to the <code>custom</code> method:</p>
+<pre><code class="language-ts"><span class="token keyword">import</span> <span class="token punctuation">{</span> Router<span class="token punctuation">,</span> RouteMethod<span class="token punctuation">,</span> custom <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@steroids/core'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Request <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'express'</span><span class="token punctuation">;</span>
+
+@<span class="token function">Router</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  name<span class="token operator">:</span> <span class="token string">'auth'</span><span class="token punctuation">,</span>
+  priority<span class="token operator">:</span> <span class="token number">100</span><span class="token punctuation">,</span>
+  routes<span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span> path<span class="token operator">:</span> <span class="token string">'*'</span><span class="token punctuation">,</span> handler<span class="token operator">:</span> <span class="token string">'authHandler'</span><span class="token punctuation">,</span> validate<span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token function">custom</span><span class="token punctuation">(</span>basicAuthValidator<span class="token punctuation">)</span>
+    <span class="token punctuation">]</span><span class="token punctuation">}</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">Router1</span> <span class="token punctuation">{</span>
+
+  <span class="token function">authHandler</span><span class="token punctuation">(</span>req<span class="token punctuation">,</span> res<span class="token punctuation">,</span> next<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+    <span class="token comment">// Do basic auth</span>
+    <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Making sure basic authentication credentials are provided</span>
+<span class="token keyword">function</span> <span class="token function">basicAuthValidator</span><span class="token punctuation">(</span>req<span class="token operator">:</span> Request<span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">boolean</span> <span class="token punctuation">{</span>
+
+  <span class="token keyword">const</span> authorization <span class="token operator">=</span> req<span class="token punctuation">.</span><span class="token function">header</span><span class="token punctuation">(</span><span class="token string">'Authorization'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">return</span> authorization <span class="token operator">&amp;&amp;</span> authorization<span class="token punctuation">.</span><span class="token function">substr</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span> <span class="token operator">===</span> <span class="token string">'Basic'</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span></code></pre>
+<blockquote>
+<p><strong>NOTE:</strong> <a href="#custom-error-messages">Read about custom error messages.</a></p>
+</blockquote>
+<h4 id="custom-async-validation">Custom Async Validation</h4>
+<p>Custom validators, <strong>excluding custom body validators</strong>, can return a promise instead if asynchronous execution is needed.</p>
+<pre><code class="language-ts"><span class="token keyword">import</span> <span class="token punctuation">{</span> Router<span class="token punctuation">,</span> RouteMethod<span class="token punctuation">,</span> custom <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@steroids/core'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Request <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'express'</span><span class="token punctuation">;</span>
+
+@<span class="token function">Router</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  name<span class="token operator">:</span> <span class="token string">'auth'</span><span class="token punctuation">,</span>
+  priority<span class="token operator">:</span> <span class="token number">100</span><span class="token punctuation">,</span>
+  routes<span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span> path<span class="token operator">:</span> <span class="token string">'*'</span><span class="token punctuation">,</span> handler<span class="token operator">:</span> <span class="token string">'authHandler'</span><span class="token punctuation">,</span> validate<span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token function">custom</span><span class="token punctuation">(</span>userExistsPromise<span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token function">custom</span><span class="token punctuation">(</span>userExistsAsync<span class="token punctuation">)</span>
+    <span class="token punctuation">]</span><span class="token punctuation">}</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">Router1</span> <span class="token punctuation">{</span>
+
+  <span class="token function">authHandler</span><span class="token punctuation">(</span>req<span class="token punctuation">,</span> res<span class="token punctuation">,</span> next<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+    <span class="token comment">// req.user now exists from now on</span>
+    <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">userExistsPromise</span><span class="token punctuation">(</span>req<span class="token operator">:</span> Request<span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Promise</span><span class="token operator">&lt;</span><span class="token builtin">boolean</span><span class="token operator">></span> <span class="token punctuation">{</span>
+
+  <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name"><span class="token builtin">Promise</span></span><span class="token punctuation">(</span><span class="token punctuation">(</span>resolve<span class="token punctuation">,</span> reject<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">this</span><span class="token punctuation">.</span>db<span class="token punctuation">.</span><span class="token function">getUser</span><span class="token punctuation">(</span>req<span class="token punctuation">.</span>query<span class="token punctuation">.</span>token<span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>user <span class="token operator">=></span> <span class="token punctuation">{</span>
+
+      req<span class="token punctuation">.</span>user <span class="token operator">=</span> user<span class="token punctuation">;</span>
+      <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Must resolve with true</span>
+
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token keyword">catch</span><span class="token punctuation">(</span>reject<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">userExistsAsync</span><span class="token punctuation">(</span>req<span class="token operator">:</span> Request<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+  req<span class="token punctuation">.</span>user <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token keyword">this</span><span class="token punctuation">.</span>db<span class="token punctuation">.</span><span class="token function">getUser</span><span class="token punctuation">(</span>req<span class="token punctuation">.</span>query<span class="token punctuation">.</span>token<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span></code></pre>
+<blockquote>
+<p><strong>NOTE:</strong> <a href="#custom-error-messages">Read about custom error messages.</a></p>
+</blockquote>
+<h4 id="custom-error-messages">Custom Error Messages</h4>
+<p>All custom validators and custom body validators can return an error object instead to customize the error message.</p>
+<pre><code class="language-ts"><span class="token keyword">function</span> <span class="token function">customValidator</span><span class="token punctuation">(</span>req<span class="token operator">:</span> Request<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+  <span class="token comment">// Invalid query</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span> <span class="token operator">!</span> req<span class="token punctuation">.</span>query<span class="token punctuation">.</span>token <span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">'You must provide your auth token with all requests!'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span></code></pre>
+<h3 id="cors-policy">CORS Policy</h3>
+<p>CORS can be setup for each router using <code>corsPolicy</code> router options in <code>Router</code> decorator. This will apply the policy on all routes defined in the router.</p>
+<p>Individual routes can also define their own policy to override the router&#39;s (if any) using the <code>corsPolicy</code> route option.</p>
+<p>CORS configuration is identical to the <a href="https://www.npmjs.com/package/cors#configuration-options"><strong>cors</strong> npm package options</a> <strong>excluding the <code>preflightContinue</code> option</strong>.</p>
+<h4 id="cors-policy-example">CORS Policy Example</h4>
+<pre><code class="language-ts"><span class="token keyword">import</span> <span class="token punctuation">{</span> Router<span class="token punctuation">,</span> RouteMethod <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@steroids/core'</span><span class="token punctuation">;</span>
+
+@<span class="token function">Router</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token string">'example'</span><span class="token punctuation">,</span>
+  corsPolicy<span class="token operator">:</span> <span class="token punctuation">{</span>
+    origin<span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token string">'http://example.com'</span><span class="token punctuation">,</span>
+      <span class="token string">'https://example.com'</span>
+    <span class="token punctuation">]</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  routes<span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token comment">// Router CORS policy will be applied to the following route</span>
+    <span class="token punctuation">{</span> path<span class="token operator">:</span> <span class="token string">'/with-cors'</span><span class="token punctuation">,</span> method<span class="token operator">:</span> RouteMethod<span class="token punctuation">.</span><span class="token constant">GET</span><span class="token punctuation">,</span> handler<span class="token operator">:</span> <span class="token string">'withCors'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token comment">// Router CORS policy is overridden on the following route</span>
+    <span class="token punctuation">{</span> path<span class="token operator">:</span> <span class="token string">'/without-cors'</span><span class="token punctuation">,</span> method<span class="token operator">:</span> RouteMethod<span class="token punctuation">.</span><span class="token constant">GET</span><span class="token punctuation">,</span> handler<span class="token operator">:</span> <span class="token string">'withoutCors'</span><span class="token punctuation">,</span> corsPolicy<span class="token operator">:</span> <span class="token punctuation">{</span> origin<span class="token operator">:</span> <span class="token boolean">true</span> <span class="token punctuation">}</span> <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">ExampleRouter</span> <span class="token punctuation">{</span>  <span class="token punctuation">}</span></code></pre>
+<h4 id="modular-cors-policy-example">Modular CORS Policy Example</h4>
+<p>When the same policy needs to be applied to multiple routers, it&#39;s a good idea to save the policy in a JSON file and use it everywhere:</p>
+<p><strong>cors-policy.json</strong></p>
+<pre><code class="language-json"><span class="token punctuation">{</span>
+  <span class="token property">"origin"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token string">"http://example.com"</span><span class="token punctuation">,</span>
+    <span class="token string">"https://example.com"</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token property">"methods"</span><span class="token operator">:</span> <span class="token string">"GET,POST"</span>
+<span class="token punctuation">}</span></code></pre>
+<p><strong>example.router.ts</strong></p>
+<pre><code class="language-ts"><span class="token keyword">import</span> <span class="token punctuation">{</span> Router<span class="token punctuation">,</span> RouteMethod <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@steroids/core'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> corsPolicy <span class="token keyword">from</span> <span class="token string">'../cors-policy.json'</span><span class="token punctuation">;</span>
+
+@<span class="token function">Router</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token string">'example'</span><span class="token punctuation">,</span>
+  corsPolicy<span class="token punctuation">,</span>
+  routes<span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span> path<span class="token operator">:</span> <span class="token string">'/with-cors'</span><span class="token punctuation">,</span> method<span class="token operator">:</span> RouteMethod<span class="token punctuation">.</span><span class="token constant">GET</span><span class="token punctuation">,</span> handler<span class="token operator">:</span> <span class="token string">'withCors'</span> <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">ExampleRouter</span> <span class="token punctuation">{</span>  <span class="token punctuation">}</span></code></pre>
+<h3 id="serving-static-files">Serving Static Files</h3>
+<p>Static files can be served in routers using the following trick:</p>
+<pre><code class="language-ts"><span class="token keyword">import</span> <span class="token punctuation">{</span> Router <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@steroids/core'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> express <span class="token keyword">from</span> <span class="token string">'express'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> path <span class="token keyword">from</span> <span class="token string">'path'</span><span class="token punctuation">;</span>
+
+@<span class="token function">Router</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  name<span class="token operator">:</span> <span class="token string">'public'</span><span class="token punctuation">,</span>
+  routes<span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span> path<span class="token operator">:</span> <span class="token string">'/public'</span><span class="token punctuation">,</span> handler<span class="token operator">:</span> <span class="token string">'serveStatic'</span> <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">StaticRouter</span> <span class="token punctuation">{</span>
+
+  <span class="token keyword">public</span> <span class="token keyword">get</span> <span class="token function">serveStatic</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+    <span class="token comment">// Serve all files from '../public'</span>
+    <span class="token keyword">return</span> express<span class="token punctuation">.</span><span class="token keyword">static</span><span class="token punctuation">(</span>path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'..'</span><span class="token punctuation">,</span> <span class="token string">'public'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span></code></pre>
+<h2 id="module-hooks">Module Hooks</h2>
+<p>All modules (routers and services) can run code at different stages of the server launch using the following hooks.</p>
+<p>All hooks can be run asynchronously either by returning a Promise or using the async/await syntax. Please keep in mind that if hooks are used asynchronously, they must be resolved before next hooks can be run on other modules.</p>
+<h3 id="injection-hook">Injection Hook</h3>
+<p>The first hook that runs on modules is <code>onInjection</code> which provides an object containing all defined services. This hook can be used to store a reference of certain services needed for use inside a module (aka injection):</p>
+<pre><code class="language-ts"><span class="token keyword">import</span> <span class="token punctuation">{</span> Service<span class="token punctuation">,</span> OnInjection <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@steroids/core'</span><span class="token punctuation">;</span>
+<span class="token comment">// For typings</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> MyOtherService <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@steroids/service/my-other'</span><span class="token punctuation">;</span>
+
+@<span class="token function">Service</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  name<span class="token operator">:</span> <span class="token string">'my'</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">MyService</span> <span class="token keyword">implements</span> <span class="token class-name">OnInjection</span> <span class="token punctuation">{</span>
+
+  <span class="token keyword">private</span> myOtherService<span class="token operator">:</span> MyOtherService<span class="token punctuation">;</span>
+
+  <span class="token function">onInjection</span><span class="token punctuation">(</span>services<span class="token operator">:</span> <span class="token builtin">any</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">this</span><span class="token punctuation">.</span>myOtherService <span class="token operator">=</span> services<span class="token punctuation">[</span><span class="token string">'my-other'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+  <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span></code></pre>
+<h3 id="config-hook">Config Hook</h3>
+<p>The second hook that runs on modules is <code>onConfig</code> which provides the server configuration file:</p>
+<pre><code class="language-ts"><span class="token keyword">import</span> <span class="token punctuation">{</span> Service<span class="token punctuation">,</span> OnConfig<span class="token punctuation">,</span> ServerConfig <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@steroids/core'</span><span class="token punctuation">;</span>
+
+@<span class="token function">Service</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  name<span class="token operator">:</span> <span class="token string">'my'</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">MyService</span> <span class="token keyword">implements</span> <span class="token class-name">OnConfig</span> <span class="token punctuation">{</span>
+
+  <span class="token function">onConfig</span><span class="token punctuation">(</span>config<span class="token operator">:</span> ServerConfig<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// Inject or use...</span>
+  <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span></code></pre>
+<h3 id="init-hook">Init Hook</h3>
+<p>The final hook that runs is <code>onInit</code> which gives all modules a chance to initialize:</p>
+<pre><code class="language-ts"><span class="token keyword">import</span> <span class="token punctuation">{</span> Service<span class="token punctuation">,</span> OnInit <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@steroids/core'</span><span class="token punctuation">;</span>
+
+@<span class="token function">Service</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  name<span class="token operator">:</span> <span class="token string">'my'</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">MyService</span> <span class="token keyword">implements</span> <span class="token class-name">OnInit</span> <span class="token punctuation">{</span>
+
+  <span class="token function">onInit</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// Initialize service</span>
+  <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span></code></pre>
+<blockquote>
+<p><strong>NOTE:</strong> If initialization of a certain module depends on another when using async hooks, use the appropriate (server event)[#server-events] and resolve the promise immediately to avoid hanging the server launch (e.g. <code>my-service:init:after</code>). A &quot;ready&quot; signal system can also be implemented for all modules by using the global <a href="#events-manager">events manager</a>.</p>
+</blockquote>
+<h2 id="events-manager">Events Manager</h2>
+<p>The built-in events manager is globally available as <code>events</code> with the following methods:</p>
+<pre><code class="language-ts"><span class="token comment">// Runs every time event is emitted</span>
+events<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'my-event'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token operator">...</span>args<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Event "my-event" emitted with arguments: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>args<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token string">', '</span><span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// Runs only once the next time event in emitted</span>
+events<span class="token punctuation">.</span><span class="token function">once</span><span class="token punctuation">(</span><span class="token string">'my-event'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token operator">...</span>args<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Event "my-event" emitted with arguments: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>args<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token string">', '</span><span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// Removes an event listener</span>
+events<span class="token punctuation">.</span><span class="token function">off</span><span class="token punctuation">(</span><span class="token string">'my-event'</span><span class="token punctuation">,</span> listener<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// Emits an event</span>
+events<span class="token punctuation">.</span><span class="token function">emit</span><span class="token punctuation">(</span><span class="token string">'my-event'</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// Emits an event once, all listeners in the future will be called and</span>
+<span class="token comment">// receive the same arguments provided here immediately after being added</span>
+<span class="token comment">// and this event cannot be emitted anymore in the future</span>
+events<span class="token punctuation">.</span><span class="token function">emitOnce</span><span class="token punctuation">(</span><span class="token string">'my-event'</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// Returns a list of event names</span>
+events<span class="token punctuation">.</span><span class="token function">eventNames</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// Alias for events.on</span>
+events<span class="token punctuation">.</span><span class="token function">addListener</span><span class="token punctuation">(</span><span class="token string">'my-event'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token operator">...</span>args<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Event "my-event" emitted with arguments: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>args<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token string">', '</span><span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// Alias for events.once</span>
+events<span class="token punctuation">.</span><span class="token function">addOnceListener</span><span class="token punctuation">(</span><span class="token string">'my-event'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token operator">...</span>args<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Event "my-event" emitted with arguments: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>args<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token string">', '</span><span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// Alias for events.off</span>
+events<span class="token punctuation">.</span><span class="token function">removeListener</span><span class="token punctuation">(</span><span class="token string">'my-event'</span><span class="token punctuation">,</span> listener<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// Removes all listeners for an event</span>
+events<span class="token punctuation">.</span><span class="token function">removeAllListeners</span><span class="token punctuation">(</span><span class="token string">'my-event'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// Returns listeners count for an event</span>
+events<span class="token punctuation">.</span><span class="token function">listenersCount</span><span class="token punctuation">(</span><span class="token string">'my-event'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// Prepends an event listener</span>
+events<span class="token punctuation">.</span><span class="token function">prependListener</span><span class="token punctuation">(</span><span class="token string">'my-event'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token operator">...</span>args<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Event "my-event" emitted with arguments: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>args<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token string">', '</span><span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// Prepends a once listener</span>
+events<span class="token punctuation">.</span><span class="token function">prependOnceListener</span><span class="token punctuation">(</span><span class="token string">'my-event'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token operator">...</span>args<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Event "my-event" emitted with arguments: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>args<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token string">', '</span><span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// Returns a list of listener functions (this array cannot be used to modify the listeners)</span>
+events<span class="token punctuation">.</span><span class="token function">getListeners</span><span class="token punctuation">(</span><span class="token string">'my-event'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// Returns the raw listeners array (this array cannot be used to modify the listeners)</span>
+events<span class="token punctuation">.</span><span class="token function">getRawListeners</span><span class="token punctuation">(</span><span class="token string">'my-event'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h3 id="server-events">Server Events</h3>
+<p>The following events will be emitted by Steroids at various stages:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Event</th>
+<th align="left">Name</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Before service injection</td>
+<td align="left"><code>NAME-service:inject:before</code></td>
+<td align="left">Emits before services get injected into a service (<code>NAME</code> will be the service name).</td>
+</tr>
+<tr>
+<td align="left">After service injection</td>
+<td align="left"><code>NAME-service:inject:after</code></td>
+<td align="left">Emits after services got injected into a service (<code>NAME</code> will be the service name).</td>
+</tr>
+<tr>
+<td align="left">Before router injection</td>
+<td align="left"><code>NAME-router:inject:before</code></td>
+<td align="left">Emits before services get injected into a router (<code>NAME</code> will be the router name).</td>
+</tr>
+<tr>
+<td align="left">After router injection</td>
+<td align="left"><code>NAME-router:inject:after</code></td>
+<td align="left">Emits after services got injected into a router (<code>NAME</code> will be the router name).</td>
+</tr>
+<tr>
+<td align="left">Before service config injection</td>
+<td align="left"><code>NAME-service:config:before</code></td>
+<td align="left">Emits before config gets injected into a service (<code>NAME</code> will be the service name).</td>
+</tr>
+<tr>
+<td align="left">After service config injection</td>
+<td align="left"><code>NAME-service:config:after</code></td>
+<td align="left">Emits after config got injected into a service (<code>NAME</code> will be the service name).</td>
+</tr>
+<tr>
+<td align="left">Before router config injection</td>
+<td align="left"><code>NAME-router:config:before</code></td>
+<td align="left">Emits before config gets injected into a router (<code>NAME</code> will be the router name).</td>
+</tr>
+<tr>
+<td align="left">After router config injection</td>
+<td align="left"><code>NAME-router:config:after</code></td>
+<td align="left">Emits after config got injected into a router (<code>NAME</code> will be the router name).</td>
+</tr>
+<tr>
+<td align="left">Before service initialization</td>
+<td align="left"><code>NAME-service:init:before</code></td>
+<td align="left">Emits before a service gets initialized (<code>NAME</code> will be the service name).</td>
+</tr>
+<tr>
+<td align="left">After service initialization</td>
+<td align="left"><code>NAME-service:init:after</code></td>
+<td align="left">Emits after a service got initialized (<code>NAME</code> will be the service name).</td>
+</tr>
+<tr>
+<td align="left">Before router initialization</td>
+<td align="left"><code>NAME-router:init:before</code></td>
+<td align="left">Emits before a service gets initialized (<code>NAME</code> will be the router name).</td>
+</tr>
+<tr>
+<td align="left">After router initialization</td>
+<td align="left"><code>NAME-router:init:after</code></td>
+<td align="left">Emits after a service got initialized (<code>NAME</code> will be the router name).</td>
+</tr>
+<tr>
+<td align="left">Server launched</td>
+<td align="left"><code>launch</code></td>
+<td align="left">Emits after the server gets launched successfully.</td>
+</tr>
+</tbody></table>
+<h2 id="server-logger">Server Logger</h2>
+<p>The built-in logger is available globally as <code>log</code> with the following methods:</p>
+<pre><code class="language-ts">log<span class="token punctuation">.</span><span class="token function">debug</span><span class="token punctuation">(</span><span class="token string">'Log at debug level'</span><span class="token punctuation">,</span> <span class="token string">'Additional message 1'</span><span class="token punctuation">,</span> <span class="token string">'Additional message 2'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">'Log at info level'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+log<span class="token punctuation">.</span><span class="token function">notice</span><span class="token punctuation">(</span><span class="token string">'Log important message at notice level'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+log<span class="token punctuation">.</span><span class="token function">warn</span><span class="token punctuation">(</span><span class="token string">'Log warning message at warn level'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+log<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token string">'Log this error at error level'</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">'Some error!'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>Using the built-in logger instead of plain console logs has the following benefits:</p>
+<ul>
+<li>Formatted logs with date time strings (local to the server timezone set in the config)</li>
+<li>Writing logs on disk at <code>dist/.logs/</code>, organized by date (each file contains logs for one day)</li>
+<li>Disk management for deleting/archiving log files by setting a max age in the server config</li>
+<li>Automatically archiving log files (when passed their max age) by moving them to <code>dist/.logs/archived/</code> and compressing them for smaller disk space usage</li>
+<li>Five different log levels</li>
+<li>Both the console and log files can be customized to contain different log levels</li>
+<li>Internal queue system to guarantee logging order on disk without blocking the event loop</li>
+<li>Identical API to console.log</li>
+</ul>
+<h3 id="saving-logs-on-disk">Saving Logs on Disk</h3>
+<p>The built-in logger saves logs on disk by default (only if the <code>log</code> API is used). In order to disable this behavior, set <code>writeLogsToFile</code> to <code>false</code> in the <a href="#server-config">server config</a>.</p>
+<p>All logs are separated into various files organized based on their date. Each file has the date as its filename (<code>dd-mm-yyyy.log</code>) and lives at <code>dist/.logs/</code> directory.</p>
+<h4 id="logs-max-age-control">Logs Max Age Control</h4>
+<p>The default max age of log files is 7 days. This means that any file that is 7 days older than the current date (based on server timezone) will be archived.</p>
+<p>Archived log files are compressed and moved to <code>dist/.logs/archived/</code> directory. If archiving is disabled (by setting <code>archiveLogs</code> to <code>false</code> in the <a href="#server-config">server config</a>) then logs will be deleted instead.</p>
+<p>However, if max age is set to 0 (by changing <code>logFileMaxAge</code> in <a href="#server-config">server config</a>) log files won&#39;t be archived nor deleted.</p>
+<h3 id="log-levels">Log Levels</h3>
+<p>Both the console and disk can be customized to include any levels of logs. By default, the console displays all levels except for <code>debug</code> and all log levels are saved on disk. To customize those behaviors, change <code>consoleLogLevels</code> and <code>logFileLevels</code> in the <a href="#server-config">server config</a>.</p>
+<h3 id="built-in-logging">Built-in Logging</h3>
+<p>The server logs in three situations:</p>
+<ol>
+<li>When starting the server (<code>debug</code> level)</li>
+<li>When an uncaught error is thrown (<code>error</code> level)</li>
+<li>When a request is made to the server (<code>debug</code> level)</li>
+</ol>
+<p>By default, request headers are not included in the logs. This can be changed by setting <code>logRequestHeaders</code> in the <a href="#server-config">server config</a>.</p>
+<h4 id="sensitive-logs">Sensitive Logs</h4>
+<p>When logging request headers is enabled, the <code>authorization</code> header value (if present) will be replaced with <code>HIDDEN</code> in logs to avoid logging sensitive information. This behavior can also be applied to other headers and query parameters (e.g. when using <code>token</code> query parameter) by setting <code>hideHeadersInLogs</code> and <code>hideQueryParamsInLogs</code> in the <a href="#server-config">server config</a>.</p>
+<h2 id="server-config">Server Config</h2>
+<p>The server has a configuration file located at <code>src/config.json</code> with the following settings:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Key</th>
+<th align="center">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">port</td>
+<td align="center">number</td>
+<td align="left">The port number to launch the server on (defaults to <code>5000</code>).</td>
+</tr>
+<tr>
+<td align="left">timezone</td>
+<td align="center">string</td>
+<td align="left">The timezone of the server (defaults to local system timezone).</td>
+</tr>
+<tr>
+<td align="left">colorfulLogs</td>
+<td align="center">boolean</td>
+<td align="left">If true, console logs will have color (defaults to <code>true</code>).</td>
+</tr>
+<tr>
+<td align="left">consoleLogLevels</td>
+<td align="center">all&vert;Array&lt;debug&vert;info&vert;notice&vert;warn&vert;error&gt;</td>
+<td align="left">An array of log levels to show in the console or <code>all</code> (no array) to show all levels (defaults to <code>[&#39;info&#39;, &#39;notice&#39;, &#39;warn&#39;, &#39;error&#39;]</code>).</td>
+</tr>
+<tr>
+<td align="left">writeLogsToFile</td>
+<td align="center">boolean</td>
+<td align="left">Will write all server logs on disk (defaults to <code>true</code>).</td>
+</tr>
+<tr>
+<td align="left">logFileMaxAge</td>
+<td align="center">number</td>
+<td align="left">The maximum age of a logs file in days. When passed, the file will either get archived or deleted (defaults to <code>7</code>).</td>
+</tr>
+<tr>
+<td align="left">logFileLevels</td>
+<td align="center">all&vert;Array&lt;debug&vert;info&vert;notice&vert;warn&vert;error&gt;</td>
+<td align="left">An array of log levels to write on disk or <code>all</code> (no array) to write all levels (defaults to <code>&#39;all&#39;</code>).</td>
+</tr>
+<tr>
+<td align="left">archiveLogs</td>
+<td align="center">boolean</td>
+<td align="left">Will archive logs written on disk that are older than their max age (defaults to <code>true</code>).</td>
+</tr>
+<tr>
+<td align="left">logRequestHeaders</td>
+<td align="center">boolean</td>
+<td align="left">If <code>true</code> will log request headers (defaults to <code>false</code>).</td>
+</tr>
+<tr>
+<td align="left">hideHeadersInLogs</td>
+<td align="center">Array&lt;string&gt;</td>
+<td align="left">A list of header names to hide in logs when logging request headers.</td>
+</tr>
+<tr>
+<td align="left">hideQueryParamsInLogs</td>
+<td align="center">Array&lt;string&gt;</td>
+<td align="left">A list of query parameter names to hide in logs.</td>
+</tr>
+<tr>
+<td align="left">predictive404</td>
+<td align="center">boolean</td>
+<td align="left">If true, installs a 404 handler at the top of the stack instead (this can be configured through <code>predictive404Priority</code>), which predicts if path will match with any middleware in the stack and rejects the request with a 404 error if not. This is useful as requests that will eventually result in a 404 error won&#39;t go through the stack in the first place. Please note that the prediction ignores all <code>*</code> and <code>/</code> routes (defaults to <code>false</code>).</td>
+</tr>
+<tr>
+<td align="left">predictive404Priority</td>
+<td align="center">number</td>
+<td align="left">The priority of the predictive 404 middleware (defaults to <code>Infinity</code>).</td>
+</tr>
+<tr>
+<td align="left">fileUploadLimit</td>
+<td align="center">string</td>
+<td align="left">The file upload limit with suffix (e.g. <code>kb</code>, <code>mb</code>, <code>gb</code>) (defaults to <code>10mb</code>).</td>
+</tr>
+</tbody></table>
+<h3 id="config-injection">Config Injection</h3>
+<p>If you need to get access to the config object inside your services or routers, use the <a href="#config-hook">Config Hook</a>.</p>
+<h3 id="config-expansion">Config Expansion</h3>
+<p>You can expand the config object typing by editing the <code>ServerConfig</code> model inside <code>src/config.model.ts</code>. This would provide typings for your customized server config to all routers and services accessing the config object through <code>OnConfig</code> interface.</p>
+<h2 id="server-assets">Server Assets</h2>
+<p>Assets can be declared inside <code>package.json</code> using the <code>assets</code> array. Any files or directories declared inside the array will be copied to the <code>dist</code> folder after the server build. Keep in mind that all paths should be relative to the <code>src</code> directory.</p>
+<h3 id="assets-example">Assets Example</h3>
+<pre><code class="language-json"><span class="token punctuation">{</span>
+  <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"steroids-template"</span><span class="token punctuation">,</span>
+  ...
+  <span class="token property">"assets"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token string">"firebase.certificate.json"</span><span class="token punctuation">,</span>
+    <span class="token string">"public"</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span></code></pre>
+<h2 id="server-error">Server Error</h2>
+<p>The <code>ServerError</code> class is available for responding to users with errors through the REST API and is used by the server internally when rejecting requests (e.g. validation errors, internal errors, 404 errors, etc.). Use the following example as how to interact with the <code>ServerError</code> class:</p>
+<pre><code class="language-ts"><span class="token keyword">import</span> <span class="token punctuation">{</span> ServerError <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@steroids/core'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> error <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ServerError</span><span class="token punctuation">(</span><span class="token string">'Message'</span><span class="token punctuation">,</span> <span class="token number">400</span><span class="token punctuation">,</span> <span class="token string">'ERROR_CODE'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// http code defaults to 500 and error code defaults to 'UNKNOWN_ERROR' when not provided</span>
+<span class="token keyword">const</span> errorWithStack <span class="token operator">=</span> ServerError<span class="token punctuation">.</span><span class="token keyword">from</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">'Message'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">400</span><span class="token punctuation">,</span> <span class="token string">'ERROR_CODE'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// error.respond(res); --> { error: true, message: 'Message', code: 'ERROR_CODE' }</span>
+<span class="token comment">// errorWithStack.respond(res); --> { error: true, message: 'Message', code: 'ERROR_CODE', stack: '...' }</span></code></pre>
+<h2 id="testing">Testing</h2>
+<p>Unit testing has been setup using Mocha and Chai. The test files are written in TypeScript inside <code>test/src</code> directory and are transpiled to JavaScript in <code>test/dist</code> using <code>test/tsconfig.json</code> before being run.</p>
+<p>When the main test suite <code>test/dist/main.spec.js</code> runs, the following happens:</p>
+<ol>
+<li>The latest server build (located at <code>/dist</code>) is reconfigured to run at port 8000 without file logging (to avoid polluting the log files) and is launched.</li>
+<li>The <code>test/dist/</code> directory is scanned recursively and all test suites are run.</li>
+<li>After all tests finish, the server is killed and reconfigured back to original.</li>
+</ol>
+<p>You should write your tests suites inside <code>test/src/</code> at any depth and run <code>npm test</code> to start the tests.</p>
+<h1 id="notes">Notes</h1>
+<ul>
+<li>The directory structure of the server is totally up to you, since the server scans the build directory for <code>.service.js</code> and <code>.router.js</code> files to install at any depth. Though, path aliases are setup for the default directory structure where services are kept at <code>src/services</code> and routers at <code>src/routers</code>. You can change aliases by editing <code>compilerOptions.paths</code> in <code>tsconfig.json</code> if desired or use the <a href="https://github.com/chisel/steroids">Steroids CLI</a> to manage path aliases.</li>
+<li>You can make your validators modular by storing the validator functions and the validator body definitions inside other files and reuse them everywhere.</li>
+</ul>
+
+            </article>
+        <footer>
+          <div class="footer-links">
+            <a href="https://npmjs.com/@chisel/steroids" class="footer-link" target="_blank">Download on NPM</a>
+            <a href="https://github.com/chisel/steroids" class="footer-link" target="_blank">View source</a>
+            <a href="https://github.com/chisel/steroids/issues" class="footer-link" target="_blank">Report a bug</a>
+          </div>
+          <span>Documentation generated by <a href="https://fluorite.js.org" target="_blank">Fluorite</a></span>
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>

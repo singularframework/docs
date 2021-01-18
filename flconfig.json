@@ -62,230 +62,26 @@
       ]}
     ]},
     { "title": "Guide", "content": "guide/index.md" },
-    { "title": "Reference", "content": "ref/index.md", "sub": [
-      { "title": "Service Decorator", "content": "ref/service-decorator/index.md", "sub": [
-        { "title": "ModuleDecoratorArgs", "content": [
-          "ref/service-decorator/module-decorator-args/index.md",
-          "ref/service-decorator/module-decorator-args/name.md",
-          "ref/service-decorator/module-decorator-args/priority.md"
-        ]}
-      ]},
-      { "title": "Router Decorator", "content": "ref/router-decorator/index.md", "sub": [
-        { "title": "RouterDecoratorArgs", "content": [
-          "ref/router-decorator/router-decorator-args/index.md",
-          "ref/router-decorator/router-decorator-args/name.md",
-          "ref/router-decorator/router-decorator-args/priority.md",
-          "ref/router-decorator/router-decorator-args/routes.md",
-          "ref/router-decorator/router-decorator-args/cors-policy.md"
-        ]},
+    { "title": "Reference", "content": "newref/index.md", "sub": [
+      { "title": "Models", "content": "newref/models/index.md", "sub": [
         { "title": "RouteDefinition", "content": [
-          "ref/router-decorator/route-definition/index.md",
-          "ref/router-decorator/route-definition/path.md",
-          "ref/router-decorator/route-definition/method.md",
-          "ref/router-decorator/route-definition/handler.md",
-          "ref/router-decorator/route-definition/validate.md",
-          "ref/router-decorator/route-definition/cors-policy.md"
-        ], "sub": [
-          { "title": "RouteMethod", "content": "ref/router-decorator/route-definition/route-method/index.md" },
-          { "title": "ValidationRule", "content": [
-            "ref/router-decorator/route-definition/validation-rule/index.md",
-            "ref/router-decorator/route-definition/validation-rule/type.md",
-            "ref/router-decorator/route-definition/validation-rule/validator.md"
-          ], "sub": [
-            { "title": "ValidationType", "content": "ref/router-decorator/route-definition/validation-rule/validation-type/index.md" },
-            { "title": "ValidatorFunction", "content": "ref/router-decorator/route-definition/validation-rule/validator-function/index.md" },
-            { "title": "AsyncValidatorFunction", "content": "ref/router-decorator/route-definition/validation-rule/async-validator-function/index.md" },
-            { "title": "ValidationDefinition", "content": "ref/router-decorator/route-definition/validation-rule/validation-definition/index.md" },
-            { "title": "BodyValidationDefinition", "content": "ref/router-decorator/route-definition/validation-rule/body-validation-definition/index.md" }
-          ]}
+          "newref/models/routedefinition/index.md",
+          "newref/models/routedefinition/path.md",
+          "newref/models/routedefinition/middleware.md",
+          "newref/models/routedefinition/aggregate.md",
+          "newref/models/routedefinition/corspolicy.md"
         ]},
-        { "title": "CORSPolicy", "content": "ref/router-decorator/cors-policy/index.md" }
+        { "title": "AggregationRule", "content": "newref/models/aggregationrule.md" }
       ]},
-      { "title": "Component Hooks", "content": [
-        "ref/component-hooks/index.md",
-        "ref/component-hooks/on-init.md",
-        "ref/component-hooks/on-injection.md",
-        "ref/component-hooks/on-config.md"
+      { "title": "Enums", "content": "newref/enums/index.md", "sub": [
+        { "title": "RouteMethod", "content": "newref/enums/routemethod.md" },
+        { "title": "AggregationTarget", "content": "newref/enums/aggregationtarget.md" }
       ]},
-      { "title": "Middleware Parameters", "content": "ref/middleware-parameters/index.md", "sub": [
-        { "title": "Request", "content": [
-          "ref/middleware-parameters/request/index.md",
-          "ref/middleware-parameters/request/sessionid.md"
-        ]},
-        { "title": "Response", "content": "ref/middleware-parameters/response/index.md" },
-        { "title": "NextFunction", "content": "ref/middleware-parameters/next-function/index.md" }
-      ]},
-      { "title": "ServerLogger", "content": [
-        "ref/server-logger/index.md",
-        "ref/server-logger/debug.md",
-        "ref/server-logger/info.md",
-        "ref/server-logger/notice.md",
-        "ref/server-logger/warn.md",
-        "ref/server-logger/error.md",
-        "ref/server-logger/id.md"
-      ]},
-      { "title": "ServerSessionManager", "content": [
-        "ref/server-session-manager/index.md",
-        "ref/server-session-manager/on.md",
-        "ref/server-session-manager/set-claim.md",
-        "ref/server-session-manager/get-claim.md"
-      ], "sub": [
-        { "title": "Session Events", "content": [
-          "ref/server-session-manager/session-events/index.md",
-          "ref/server-session-manager/session-events/created.md",
-          "ref/server-session-manager/session-events/claim-set.md",
-          "ref/server-session-manager/session-events/claim-get.md"
-        ]}
-      ]},
-      { "title": "ServerEventManager", "content": [
-        "ref/server-event-manager/index.md",
-        "ref/server-event-manager/on.md",
-        "ref/server-event-manager/once.md",
-        "ref/server-event-manager/off.md",
-        "ref/server-event-manager/emit.md",
-        "ref/server-event-manager/emit-once.md",
-        "ref/server-event-manager/event-names.md",
-        "ref/server-event-manager/add-listener.md",
-        "ref/server-event-manager/add-once-listener.md",
-        "ref/server-event-manager/remove-listener.md",
-        "ref/server-event-manager/remove-all-listeners.md",
-        "ref/server-event-manager/listeners-count.md",
-        "ref/server-event-manager/prepend-listener.md",
-        "ref/server-event-manager/prepend-once-listener.md",
-        "ref/server-event-manager/get-listeners.md",
-        "ref/server-event-manager/get-raw-listeners.md"
-      ], "sub": [
-        { "title": "EventListener", "content": "ref/server-event-manager/event-listener/index.md" },
-        { "title": "EventListenerWrapper", "content": [
-          "ref/server-event-manager/event-listener-wrapper/index.md",
-          "ref/server-event-manager/event-listener-wrapper/once.md",
-          "ref/server-event-manager/event-listener-wrapper/listener.md"
-        ]},
-        { "title": "Server Events", "content": [
-          "ref/server-event-manager/server-events/index.md",
-          "ref/server-event-manager/server-events/service-inject-before.md",
-          "ref/server-event-manager/server-events/service-inject-after.md",
-          "ref/server-event-manager/server-events/router-inject-before.md",
-          "ref/server-event-manager/server-events/router-inject-after.md",
-          "ref/server-event-manager/server-events/service-config-before.md",
-          "ref/server-event-manager/server-events/service-config-after.md",
-          "ref/server-event-manager/server-events/router-config-before.md",
-          "ref/server-event-manager/server-events/router-config-after.md",
-          "ref/server-event-manager/server-events/service-init-before.md",
-          "ref/server-event-manager/server-events/service-init-after.md",
-          "ref/server-event-manager/server-events/router-init-before.md",
-          "ref/server-event-manager/server-events/router-init-after.md",
-          "ref/server-event-manager/server-events/name-service-inject-before.md",
-          "ref/server-event-manager/server-events/name-service-inject-after.md",
-          "ref/server-event-manager/server-events/name-router-inject-before.md",
-          "ref/server-event-manager/server-events/name-router-inject-after.md",
-          "ref/server-event-manager/server-events/name-service-config-before.md",
-          "ref/server-event-manager/server-events/name-service-config-after.md",
-          "ref/server-event-manager/server-events/name-router-config-before.md",
-          "ref/server-event-manager/server-events/name-router-config-after.md",
-          "ref/server-event-manager/server-events/name-service-init-before.md",
-          "ref/server-event-manager/server-events/name-service-init-after.md",
-          "ref/server-event-manager/server-events/name-router-init-before.md",
-          "ref/server-event-manager/server-events/name-router-init-after.md",
-          "ref/server-event-manager/server-events/launch.md",
-          "ref/server-event-manager/server-events/error.md"
-        ]}
-      ]},
-      { "title": "ServerError", "content": [
-        "ref/server-error/index.md",
-        "ref/server-error/constructor.md",
-        "ref/server-error/server-error-from.md",
-        "ref/server-error/respond.md",
-        "ref/server-error/error.md",
-        "ref/server-error/message.md",
-        "ref/server-error/http-code.md",
-        "ref/server-error/code.md",
-        "ref/server-error/stack.md"
-      ]},
-      { "title": "ServerConfig", "content": "ref/server-config/index.md", "sub": [
-        { "title": "BaseServerConfig", "content": [
-          "ref/server-config/base-server-config/index.md",
-          "ref/server-config/base-server-config/port.md",
-          "ref/server-config/base-server-config/timezone.md",
-          "ref/server-config/base-server-config/predictive-404.md",
-          "ref/server-config/base-server-config/predictive-404-priority.md",
-          "ref/server-config/base-server-config/log-request-headers.md",
-          "ref/server-config/base-server-config/exclude-headers-in-logs.md",
-          "ref/server-config/base-server-config/exclude-query-params-in-logs.md",
-          "ref/server-config/base-server-config/colorful-logs.md",
-          "ref/server-config/base-server-config/console-log-levels.md",
-          "ref/server-config/base-server-config/write-logs-to-file.md",
-          "ref/server-config/base-server-config/log-file-levels.md",
-          "ref/server-config/base-server-config/log-file-max-age.md",
-          "ref/server-config/base-server-config/archive-logs.md",
-          "ref/server-config/base-server-config/file-upload-limit.md",
-          "ref/server-config/base-server-config/session-management.md",
-          "ref/server-config/base-server-config/cookie-secret.md"
-        ]}
-      ]},
-      { "title": "Globals", "content": [
-        "ref/globals/index.md",
-        "ref/globals/log.md",
-        "ref/globals/session.md",
-        "ref/globals/events.md",
-        "ref/globals/server-error.md"
-      ]},
-      { "title": "ValidationRule Factories", "content": [
-        "ref/validation-rule-factories/index.md",
-        "ref/validation-rule-factories/headers.md",
-        "ref/validation-rule-factories/queries.md",
-        "ref/validation-rule-factories/body.md",
-        "ref/validation-rule-factories/custom.md"
-      ]},
-      { "title": "Validators", "content": [
-        "ref/validators/index.md"
-      ], "sub": [
-        { "title": "Legacy Validators", "content": [
-          "ref/validators/legacy/index.md",
-          "ref/validators/legacy/type-string.md",
-          "ref/validators/legacy/type-number.md",
-          "ref/validators/legacy/type-boolean.md",
-          "ref/validators/legacy/type-null.md",
-          "ref/validators/legacy/type-array.md",
-          "ref/validators/legacy/type-enum.md",
-          "ref/validators/legacy/exist.md",
-          "ref/validators/legacy/equal.md",
-          "ref/validators/legacy/equal-ref.md",
-          "ref/validators/legacy/match.md",
-          "ref/validators/legacy/include.md",
-          "ref/validators/legacy/include-ref.md",
-          "ref/validators/legacy/num-between.md",
-          "ref/validators/legacy/num-between-ex.md",
-          "ref/validators/legacy/num-gt.md",
-          "ref/validators/legacy/num-gt-ref.md",
-          "ref/validators/legacy/num-gte.md",
-          "ref/validators/legacy/num-gte-ref.md",
-          "ref/validators/legacy/num-lt.md",
-          "ref/validators/legacy/num-lt-ref.md",
-          "ref/validators/legacy/num-lte.md",
-          "ref/validators/legacy/num-lte-ref.md",
-          "ref/validators/legacy/len-between.md",
-          "ref/validators/legacy/len-between-ex.md",
-          "ref/validators/legacy/len-gt.md",
-          "ref/validators/legacy/len-gt-ref.md",
-          "ref/validators/legacy/len-gte.md",
-          "ref/validators/legacy/len-gte-ref.md",
-          "ref/validators/legacy/len-lt.md",
-          "ref/validators/legacy/len-lt-ref.md",
-          "ref/validators/legacy/len-lte.md",
-          "ref/validators/legacy/len-lte-ref.md",
-          "ref/validators/legacy/and.md",
-          "ref/validators/legacy/or.md",
-          "ref/validators/legacy/not.md",
-          "ref/validators/legacy/opt.md",
-          "ref/validators/legacy/sub.md"
-        ], "sub": [
-          { "title": "SyncValidationDefinition", "content": "ref/validators/legacy/sync-validation-definition/index.md" }
-        ]}
-      ]},
-      { "title": "Helpers", "content": [
-        "ref/helpers/index.md",
-        "ref/helpers/resolve-ref.md"
+      { "title": "Decorators", "content": "newref/decorators/index.md", "sub": [
+        { "title": "Service", "content": "newref/decorators/service.md" },
+        { "title": "Router", "content": "newref/decorators/router.md" },
+        { "title": "Interceptor", "content": "newref/decorators/interceptor.md" },
+        { "title": "Plugin", "content": "newref/decorators/plugin.md" }
       ]}
     ]}
   ],
